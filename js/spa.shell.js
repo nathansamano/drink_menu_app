@@ -10,12 +10,13 @@ spa.shell = (function () {
     configMap = {
       main_html : String()
       
+      // Navbar
       + '<div class="navbar navbar-default navbar-fixed-top">'
       + '<div class="container">'
         + '<div class="navbar-header">'
           + '<a href="../" class="navbar-brand">Drink Menu App</a>'
           + '<button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbar-main">'
-           + '<span class="icon-bar"></span>'
+            + '<span class="icon-bar"></span>'
             + '<span class="icon-bar"></span>'
             + '<span class="icon-bar"></span>'
           + '</button>'
@@ -29,6 +30,41 @@ spa.shell = (function () {
         + '</div>'
       + '</div>'
     + '</div>'
+
+    // Center Buttons
+    + '<div class="container">'
+      + '<div class="bs-docs-section">'
+        + '<div class="row">'
+          + '<div class="col-lg-5">'
+            + '<div class="bs-component" style="margin-bottom: 15px;">'
+              + '<div class="btn-group btn-group-justified">'
+                + '<a href="#" class="btn btn-default">Left</a>'
+                + '<a href="#" class="btn btn-default">Middle</a>'
+                + '<a href="#" class="btn btn-default">Right</a>'
+              + '</div>'
+            + '</div>'
+            + '<div class="bs-component" style="margin-bottom: 15px;">'
+              + '<div class="btn-group btn-group-justified">'
+                + '<a href="#" class="btn btn-default">Left</a>'
+                + '<a href="#" class="btn btn-default">Middle</a>'
+                + '<a href="#" class="btn btn-default">Right</a>'
+              + '</div>'
+            + '</div>'
+            + '<div class="bs-component" style="margin-bottom: 15px;">'
+              + '<div class="btn-group btn-group-justified">'
+                + '<a href="#" class="btn btn-default">Left</a>'
+                + '<a href="#" class="btn btn-default">Middle</a>'
+                + '<a href="#" class="btn btn-default">Right</a>'
+              + '</div>'
+            + '</div>'
+            + '<div class="bs-component" style="margin-bottom: 15px;">'
+              + '<div class="btn-group btn-group-justified">'
+                + '<a href="#" class="btn btn-default">Left</a>'
+                + '<a href="#" class="btn btn-default">Middle</a>'
+                + '<a href="#" class="btn btn-default">Right</a>'
+              + '</div>'
+            + '</div>'
+    + '</div></div></div></div>'
 
     },
       
