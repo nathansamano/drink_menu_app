@@ -65,28 +65,28 @@ spa.shell = (function () {
                 + '<div class="btn-group btn-group-justified">'
                   + '<a href="/taste" class="btn btn-default" id="taste">Taste</a>'
                   + '<a href="/flavor" class="btn btn-default" id="flavor">Flavor</a>'
-                  + '<a href="#" class="btn btn-default" id="ingredients">Ingredients</a>'
+                  + '<a href="/ingredients" class="btn btn-default" id="ingredients">Ingredients</a>'
                 + '</div>'
               + '</div>'
               + '<div class="bs-component" style="margin-bottom: 15px;">'
                 + '<div class="btn-group btn-group-justified">'
-                  + '<a href="#" class="btn btn-default" id="feeling">Feeling</a>'
-                  + '<a href="#" class="btn btn-default" id="color">Color</a>'
-                  + '<a href="#" class="btn btn-default" id="strength">Strength</a>'
+                  + '<a href="/feeling" class="btn btn-default" id="feeling">Feeling</a>'
+                  + '<a href="/color" class="btn btn-default" id="color">Color</a>'
+                  + '<a href="/strength" class="btn btn-default" id="strength">Strength</a>'
                 + '</div>'
               + '</div>'
               + '<div class="bs-component" style="margin-bottom: 15px;">'
                 + '<div class="btn-group btn-group-justified">'
-                  + '<a href="#" class="btn btn-default" id="calories">Calories</a>'
-                  + '<a href="#" class="btn btn-default" id="temperature">Temperature</a>'
-                  + '<a href="#" class="btn btn-default" id="glass">Glass</a>'
+                  + '<a href="/calories" class="btn btn-default" id="calories">Calories</a>'
+                  + '<a href="/temperature" class="btn btn-default" id="temperature">Temperature</a>'
+                  + '<a href="/glass" class="btn btn-default" id="glass">Glass</a>'
                 + '</div>'
               + '</div>'
               + '<div class="bs-component" style="margin-bottom: 15px;">'
                 + '<div class="btn-group btn-group-justified">'
-                  + '<a href="#" class="btn btn-default" id="special">Special</a>'
-                  + '<a href="#" class="btn btn-default" id="random">Random</a>'
-                  + '<a href="#" class="btn btn-default" id="all-drinks">All Drinks</a>'
+                  + '<a href="/special" class="btn btn-default" id="special">Special</a>'
+                  + '<a href="/random" class="btn btn-default" id="random">Random</a>'
+                  + '<a href="/all_drinks" class="btn btn-default" id="all-drinks">All Drinks</a>'
                 + '</div>'
               + '</div>'
       + '</div></div></div></div>'
@@ -149,13 +149,6 @@ spa.shell = (function () {
     spa.subcategories.postSection(subView);
   }
 
-  function taste() {
-    if (currentMod != jqueryMap.taste)
-      currentMod.hide();
-    currentMod = jqueryMap.$taste;
-    spa.subcategories.postSection(subView);
-  }
-
   // End DOM client-side router methods
 
   //// end DOM-oriented methods ////
@@ -180,21 +173,67 @@ spa.shell = (function () {
 
     // Set up routes
     page('/', index);
-    page('/taste', subcategories);
-    page('/flavor', subcategories);
+    page('/taste',       subcategories);
+    page('/flavor',      subcategories);
+    page('/ingredients', subcategories);
+    page('/feeling',     subcategories);
+    page('/color',       subcategories);
+    page('/strength',    subcategories);
+    page('/calories',    subcategories);
+    page('/temperature', subcategories);
+    page('/glass',       subcategories);
+    page('/special',     subcategories);
+    page('/random',      subcategories);
+    page('/all_drinks',  subcategories);
     page();
 
     // Click event handlers
     $('#taste').on("click", function() {
-      console.log("clicked on taste");
       subView = "taste";
-      console.log(subView);
     });
 
     $('#flavor').on("click", function() {
-      console.log("clicked on flavor");
       subView = "flavor";
-      console.log(subView);
+    });
+
+    $('#ingredients').on("click", function() {
+      subView = "ingredients";
+    });
+
+    $('#feeling').on("click", function() {
+      subView = "feeling";
+    });
+
+    $('#color').on("click", function() {
+      subView = "color";
+    });
+
+    $('#strength').on("click", function() {
+      subView = "strength";
+    });
+
+    $('#calories').on("click", function() {
+      subView = "calories";
+    });
+
+    $('#temperature').on("click", function() {
+      subView = "temperature";
+    });
+
+    $('#glass').on("click", function() {
+      subView = "glass";
+    });
+
+    $('#special').on("click", function() {
+      subView = "special";
+    });
+
+    $('#random').on("click", function() {
+      subView = "random";
+    });
+
+    $('#all-drinks').on("click", function() {
+      subView = "allDrinks";
     });
 
   }; // End public method initModule
