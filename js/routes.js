@@ -25,22 +25,13 @@ configRoutes = function ( router, server ) {
     res.sendFile('index.html', options);
   });
 
-  /*router.get('/socket', function(req, res) {
+  router.get('/taste', function(req, res) {
     res.sendFile('index.html', options);
   });
 
-  // This will be commented out before the show
-  router.get('/seo', function(req, res) {
+  router.get('/flavor', function(req, res) {
     res.sendFile('index.html', options);
   });
-  
-  router.get('/robots.txt', function(req, res) {
-    res.sendFile('robots.txt', options);
-  });
-  
- router.get('/Sitemap.xml', function(req, res) {
-    res.sendFile('Sitemap.xml', options);
-  });*/
 
 }; 
  

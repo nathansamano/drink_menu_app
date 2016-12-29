@@ -63,8 +63,8 @@ spa.shell = (function () {
             + '<div class="col-lg-5">'
               + '<div class="bs-component" style="margin-bottom: 15px;">'
                 + '<div class="btn-group btn-group-justified">'
-                  + '<a href="/subcategories" class="btn btn-default" id="taste">Taste</a>'
-                  + '<a href="#" class="btn btn-default" id="flavor">Flavor</a>'
+                  + '<a href="/taste" class="btn btn-default" id="taste">Taste</a>'
+                  + '<a href="/flavor" class="btn btn-default" id="flavor">Flavor</a>'
                   + '<a href="#" class="btn btn-default" id="ingredients">Ingredients</a>'
                 + '</div>'
               + '</div>'
@@ -91,16 +91,18 @@ spa.shell = (function () {
               + '</div>'
       + '</div></div></div></div>'
 
+      + '<section><div id="content-subcategories"></div></section>'
     },
       
     stateMap = {
       // View state information
-      $container  : undefined,
+      $container  : undefined
     },
 
     jqueryMap = {},
 
-    initModule, setJqueryMap, currentMod;
+    initModule, setJqueryMap, currentMod,
+    subView;
 
   //----------------- END MODULE SCOPE VARIABLES ---------------
 
@@ -111,20 +113,21 @@ spa.shell = (function () {
     var $container = stateMap.$container;
 
     jqueryMap = {
-      $container   : $container,
-      $nav         : $container.find('#navbar-main'),
-      $content     : $container.find('#content-main'),
-      $taste       : $container.find('#taste'),
-      $flavor      : $container.find('#flavor'),
-      $ingredients : $container.find('#ingredients'),
-      $feeling     : $container.find('#feeling'),
-      $color       : $container.find('#color'),
-      $strength    : $container.find('#strength'),
-      $calories    : $container.find('calories'),
-      $temperature : $container.find('temperature'),
-      $glass       : $container.find('glass'),
-      $special     : $container.find('special'),
-      $allDrinks   : $container.find('all-drinks')
+      $container     : $container,
+      $nav           : $container.find('#navbar-main'),
+      $content       : $container.find('#content-main'),
+      $subcategories : $container.find('#content-subcategories'),
+      $taste         : $container.find('#taste'),
+      $flavor        : $container.find('#flavor'),
+      $ingredients   : $container.find('#ingredients'),
+      $feeling       : $container.find('#feeling'),
+      $color         : $container.find('#color'),
+      $strength      : $container.find('#strength'),
+      $calories      : $container.find('#calories'),
+      $temperature   : $container.find('#temperature'),
+      $glass         : $container.find('#glass'),
+      $special       : $container.find('#special'),
+      $allDrinks     : $container.find('#all-drinks')
     };
   };
   // End DOM method /setJqueryMap/
@@ -143,7 +146,14 @@ spa.shell = (function () {
     if (currentMod != jqueryMap.subcategories)
       currentMod.hide();
     currentMod = jqueryMap.$subcategories;
-    spa.subcategories.postSection();
+    spa.subcategories.postSection(subView);
+  }
+
+  function taste() {
+    if (currentMod != jqueryMap.taste)
+      currentMod.hide();
+    currentMod = jqueryMap.$taste;
+    spa.subcategories.postSection(subView);
   }
 
   // End DOM client-side router methods
@@ -170,8 +180,22 @@ spa.shell = (function () {
 
     // Set up routes
     page('/', index);
-    page('/subcategories', subcategories); // incorrect semantics
+    page('/taste', subcategories);
+    page('/flavor', subcategories);
     page();
+
+    // Click event handlers
+    $('#taste').on("click", function() {
+      console.log("clicked on taste");
+      subView = "taste";
+      console.log(subView);
+    });
+
+    $('#flavor').on("click", function() {
+      console.log("clicked on flavor");
+      subView = "flavor";
+      console.log(subView);
+    });
 
   }; // End public method initModule
 
