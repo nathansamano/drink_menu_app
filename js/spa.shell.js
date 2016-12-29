@@ -63,7 +63,7 @@ spa.shell = (function () {
             + '<div class="col-lg-5">'
               + '<div class="bs-component" style="margin-bottom: 15px;">'
                 + '<div class="btn-group btn-group-justified">'
-                  + '<a href="#" class="btn btn-default" id="taste">Taste</a>'
+                  + '<a href="/subcategories" class="btn btn-default" id="taste">Taste</a>'
                   + '<a href="#" class="btn btn-default" id="flavor">Flavor</a>'
                   + '<a href="#" class="btn btn-default" id="ingredients">Ingredients</a>'
                 + '</div>'
@@ -100,8 +100,7 @@ spa.shell = (function () {
 
     jqueryMap = {},
 
-    initModule, setJqueryMap,
-    currentMod;
+    initModule, setJqueryMap, currentMod;
 
   //----------------- END MODULE SCOPE VARIABLES ---------------
 
@@ -140,7 +139,12 @@ spa.shell = (function () {
   }
 
   // One function per feature module
-
+  function subcategories() {
+    if (currentMod != jqueryMap.subcategories)
+      currentMod.hide();
+    currentMod = jqueryMap.$subcategories;
+    spa.subcategories.postSection();
+  }
 
   // End DOM client-side router methods
 
@@ -158,13 +162,15 @@ spa.shell = (function () {
     setJqueryMap();
 
     // Initialize each feature module
-    
+    jqueryMap.$subcategories.hide();
+    spa.subcategories.initModule(jqueryMap.$subcategories);
 
     // Default content is "home" screen
     currentMod = jqueryMap.$content;
 
     // Set up routes
     page('/', index);
+    page('/subcategories', subcategories); // incorrect semantics
     page();
 
   }; // End public method initModule
