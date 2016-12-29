@@ -125,7 +125,7 @@ spa.shell = (function () {
       $temperature : $container.find('temperature'),
       $glass       : $container.find('glass'),
       $special     : $container.find('special'),
-      $all_drinks  : $container.find('all-drinks')
+      $allDrinks   : $container.find('all-drinks')
     };
   };
   // End DOM method /setJqueryMap/
