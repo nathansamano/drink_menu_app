@@ -21,11 +21,11 @@ configRoutes = function ( router, server ) {
     res.sendFile('index.html', options);
   });
 
-  /*router.get('/dates', function(req, res) {
+  router.get('/subcategories', function(req, res) {
     res.sendFile('index.html', options);
   });
 
-  router.get('/socket', function(req, res) {
+  /*router.get('/socket', function(req, res) {
     res.sendFile('index.html', options);
   });
 
