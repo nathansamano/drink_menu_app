@@ -53,6 +53,9 @@ app.use( function ( request, response, next ) {
   if ( request.url.indexOf( '/js/spa.shell.js'  ) >= 0 ) {
     setWatch( '/js/spa.shell.js', 'script' );
   }
+  else if ( request.url.indexOf( '/js/spa.subcategories.js'  ) >= 0 ) {
+    setWatch( '/js/spa.subcategories.js', 'script' );
+  }
   else if ( request.url.indexOf( '/css/custom.min.css' ) >= 0 ) {
     setWatch( request.url, 'stylesheet' );
   }
