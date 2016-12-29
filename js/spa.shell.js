@@ -12,15 +12,15 @@ spa.shell = (function () {
       
       // Navbar
       + '<div class="navbar navbar-default navbar-fixed-top">'
-      + '<div class="container">'
-        + '<div class="navbar-header">'
-          + '<a href="../" class="navbar-brand">Drink Menu App</a>'
-          + '<button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbar-main">'
-            + '<span class="icon-bar"></span>'
-            + '<span class="icon-bar"></span>'
-            + '<span class="icon-bar"></span>'
-          + '</button>'
-        + '</div>'
+        + '<div class="container">'
+          + '<div class="navbar-header">'
+            + '<a href="../" class="navbar-brand">Drink Menu App</a>'
+            + '<button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbar-main">'
+              + '<span class="icon-bar"></span>'
+              + '<span class="icon-bar"></span>'
+              + '<span class="icon-bar"></span>'
+            + '</button>'
+          + '</div>'
 
         // Dropdown for Menus
         + '<div class="navbar-collapse collapse" id="navbar-main">'
@@ -30,16 +30,17 @@ spa.shell = (function () {
               + '<a class="dropdown-toggle" data-toggle="dropdown" href="#" id="themes" aria-expanded="false">'
                 + 'Menus <span class="caret"></span>'
               + '</a>'
-            + '<ul class="dropdown-menu" aria-labelledby="themes">'
-              + '<li><a href="#">Favorites</a></li>'
-              + '<li class="divider"></li>'
-              + '<li><a href="#">Saved Menu 1</a></li>'
-              + '<li><a href="#">Saved Menu 2</a></li>'
-              + '<li class="divider"></li>'
-              + '<li><a href="#">Create Menu</a></li>'
-            + '</ul>'
+              + '<ul class="dropdown-menu" aria-labelledby="themes">'
+                + '<li><a href="#">Favorites</a></li>'
+                + '<li class="divider"></li>'
+                + '<li><a href="#">Saved Menu 1</a></li>'
+                + '<li><a href="#">Saved Menu 2</a></li>'
+                + '<li class="divider"></li>'
+                + '<li><a href="#">Create Menu</a></li>'
+              + '</ul>'
             + '</li>'
 
+            // Other toolbar links
             + '<li>'
               +'<a href="#">Import Menu</a>'
             + '</li>'
@@ -50,45 +51,45 @@ spa.shell = (function () {
               +'<a href="#">Search</a>'
             + '</li>'
           + '</ul>'
+        + '</div>'
 
         + '</div>'
       + '</div>'
-    + '</div>'
 
-    // Center Buttons
-    + '<div class="container">'
-      + '<div class="bs-docs-section">'
-        + '<div class="row">'
-          + '<div class="col-lg-5">'
-            + '<div class="bs-component" style="margin-bottom: 15px;">'
-              + '<div class="btn-group btn-group-justified">'
-                + '<a href="#" class="btn btn-default">Taste</a>'
-                + '<a href="#" class="btn btn-default">Flavor</a>'
-                + '<a href="#" class="btn btn-default">Content</a>'
+      // Center Buttons
+      + '<div class="container" id="content-main">'
+        + '<div class="bs-docs-section">'
+          + '<div class="row">'
+            + '<div class="col-lg-5">'
+              + '<div class="bs-component" style="margin-bottom: 15px;">'
+                + '<div class="btn-group btn-group-justified">'
+                  + '<a href="#" class="btn btn-default" id="taste">Taste</a>'
+                  + '<a href="#" class="btn btn-default" id="flavor">Flavor</a>'
+                  + '<a href="#" class="btn btn-default" id="ingredients">Ingredients</a>'
+                + '</div>'
               + '</div>'
-            + '</div>'
-            + '<div class="bs-component" style="margin-bottom: 15px;">'
-              + '<div class="btn-group btn-group-justified">'
-                + '<a href="#" class="btn btn-default">Feeling</a>'
-                + '<a href="#" class="btn btn-default">Color</a>'
-                + '<a href="#" class="btn btn-default">Strength</a>'
+              + '<div class="bs-component" style="margin-bottom: 15px;">'
+                + '<div class="btn-group btn-group-justified">'
+                  + '<a href="#" class="btn btn-default" id="feeling">Feeling</a>'
+                  + '<a href="#" class="btn btn-default" id="color">Color</a>'
+                  + '<a href="#" class="btn btn-default" id="strength">Strength</a>'
+                + '</div>'
               + '</div>'
-            + '</div>'
-            + '<div class="bs-component" style="margin-bottom: 15px;">'
-              + '<div class="btn-group btn-group-justified">'
-                + '<a href="#" class="btn btn-default">Calories</a>'
-                + '<a href="#" class="btn btn-default">Temperature</a>'
-                + '<a href="#" class="btn btn-default">Glass</a>'
+              + '<div class="bs-component" style="margin-bottom: 15px;">'
+                + '<div class="btn-group btn-group-justified">'
+                  + '<a href="#" class="btn btn-default" id="calories">Calories</a>'
+                  + '<a href="#" class="btn btn-default" id="temperature">Temperature</a>'
+                  + '<a href="#" class="btn btn-default" id="glass">Glass</a>'
+                + '</div>'
               + '</div>'
-            + '</div>'
-            + '<div class="bs-component" style="margin-bottom: 15px;">'
-              + '<div class="btn-group btn-group-justified">'
-                + '<a href="#" class="btn btn-default">Special</a>'
-                + '<a href="#" class="btn btn-default">Random</a>'
-                + '<a href="#" class="btn btn-default">All Drinks</a>'
+              + '<div class="bs-component" style="margin-bottom: 15px;">'
+                + '<div class="btn-group btn-group-justified">'
+                  + '<a href="#" class="btn btn-default" id="special">Special</a>'
+                  + '<a href="#" class="btn btn-default" id="random">Random</a>'
+                  + '<a href="#" class="btn btn-default" id="all-drinks">All Drinks</a>'
+                + '</div>'
               + '</div>'
-            + '</div>'
-    + '</div></div></div></div>'
+      + '</div></div></div></div>'
 
     },
       
@@ -111,9 +112,20 @@ spa.shell = (function () {
     var $container = stateMap.$container;
 
     jqueryMap = {
-      $container : $container,
-      $nav       : $container.find('#side'),
-      $content   : $container.find('#content-main')
+      $container   : $container,
+      $nav         : $container.find('#navbar-main'),
+      $content     : $container.find('#content-main'),
+      $taste       : $container.find('#taste'),
+      $flavor      : $container.find('#flavor'),
+      $ingredients : $container.find('#ingredients'),
+      $feeling     : $container.find('#feeling'),
+      $color       : $container.find('#color'),
+      $strength    : $container.find('#strength'),
+      $calories    : $container.find('calories'),
+      $temperature : $container.find('temperature'),
+      $glass       : $container.find('glass'),
+      $special     : $container.find('special'),
+      $all_drinks  : $container.find('all-drinks')
     };
   };
   // End DOM method /setJqueryMap/
@@ -125,7 +137,7 @@ spa.shell = (function () {
     currentMod.hide();
     currentMod = jqueryMap.$content; 
     jqueryMap.$content.show();
-    }
+  }
 
   // One function per feature module
 
