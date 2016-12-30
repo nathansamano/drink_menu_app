@@ -25,11 +25,58 @@ spa.subcategories = (function() {
       ,
 
       taste_html : String()
-        + '<div>taste</div>'
+        + '<div class="container" id="content-main">'
+        + '<div class="bs-docs-section">'
+          + '<div class="row">'
+            + '<div class="col-lg-5">'
+              + '<div class="bs-component" style="margin-bottom: 15px;">'
+                + '<div class="btn-group btn-group-justified">'
+                  + '<a href="/taste/bitter" class="btn btn-default" id="bitter">Bitter</a>'
+                  + '<a href="/salty" class="btn btn-default" id="salty">Salty</a>'
+                + '</div>'
+              + '</div>'
+              + '<div class="bs-component" style="margin-bottom: 15px;">'
+                + '<div class="btn-group btn-group-justified">'
+                  + '<a href="/sour" class="btn btn-default" id="sour">Sour</a>'
+                  + '<a href="/sweet" class="btn btn-default" id="sweet">Sweet</a>'
+                + '</div>'
+              + '</div>'
+        + '</div></div></div></div>'
       ,
 
       flavor_html : String()
-        + '<div>flavor</div>'
+        + '<div class="container" id="content-main">'
+        + '<div class="bs-docs-section">'
+          + '<div class="row">'
+            + '<div class="col-lg-5">'
+              + '<div class="bs-component" style="margin-bottom: 15px;">'
+                + '<div class="btn-group btn-group-justified">'
+                  + '<a href="/buttery" class="btn btn-default" id="buttery">Buttery</a>'
+                  + '<a href="/candy" class="btn btn-default" id="candy">Candy</a>'
+                  + '<a href="/sour" class="btn btn-default" id="sour">Sour</a>'
+                  + '<a href="/sweet" class="btn btn-default" id="sweet">Sweet</a>'
+                  + '<a href="/sour" class="btn btn-default" id="sour">Sour</a>'
+                + '</div>'
+              + '</div>'
+              + '<div class="bs-component" style="margin-bottom: 15px;">'
+                + '<div class="btn-group btn-group-justified">'
+                  + '<a href="/bitter" class="btn btn-default" id="bitter">Bitter</a>'
+                  + '<a href="/salty" class="btn btn-default" id="salty">Salty</a>'
+                  + '<a href="/sour" class="btn btn-default" id="sour">Sour</a>'
+                  + '<a href="/sweet" class="btn btn-default" id="sweet">Sweet</a>'
+                  + '<a href="/sour" class="btn btn-default" id="sour">Sour</a>'
+                + '</div>'
+              + '</div>'
+              + '<div class="bs-component" style="margin-bottom: 15px;">'
+                + '<div class="btn-group btn-group-justified">'
+                  + '<a href="/bitter" class="btn btn-default" id="bitter">Bitter</a>'
+                  + '<a href="/salty" class="btn btn-default" id="salty">Salty</a>'
+                  + '<a href="/sour" class="btn btn-default" id="sour">Sour</a>'
+                  + '<a href="/sweet" class="btn btn-default" id="sweet">Sweet</a>'
+                  + '<a href="/sour" class="btn btn-default" id="sour">Sour</a>'
+                + '</div>'
+              + '</div>'
+        + '</div></div></div></div>'
       ,
 
       ingredients_html : String()
@@ -80,34 +127,52 @@ spa.subcategories = (function() {
 
     jqueryMap = {},
 
-    initModule, setJqueryMap, postSection;
+    initModule, setJqueryMap, postSection,
+    currentMod;
 
   //// end local variables ////
 
-  //// DOM interaction methods
+  //// DOM interaction methods ////
 
   setJqueryMap = function() {
     var $container = stateMap.$container;
 
     jqueryMap = {
       $container   : $container,
-      $main        : $container.find('#main'),
-      $taste       : $container.find('#taste'),
-      $flavor      : $container.find('#flavor'),
-      $ingredients : $container.find('#ingredients'),
-      $feeling     : $container.find('#feeling'),
-      $color       : $container.find('#color'),
-      $strength    : $container.find('#strength'),
-      $calories    : $container.find('#calories'),
-      $temperature : $container.find('#temperature'),
-      $glass       : $container.find('#glass'),
-      $special     : $container.find('#special'),
-      $random      : $container.find('#random'),
-      $allDrinks   : $container.find('#allDrinks')
+      $content     : $container.find('#content-main'),
+
+      $taste       : $container.find('#taste'       ),
+      $flavor      : $container.find('#flavor'      ),
+      $ingredients : $container.find('#ingredients' ),
+      $feeling     : $container.find('#feeling'     ),
+      $color       : $container.find('#color'       ),
+      $strength    : $container.find('#strength'    ),
+      $calories    : $container.find('#calories'    ),
+      $temperature : $container.find('#temperature' ),
+      $glass       : $container.find('#glass'       ),
+      $special     : $container.find('#special'     ),
+      $random      : $container.find('#random'      ),
+      $allDrinks   : $container.find('#allDrinks'   ),
+
+      $bitter      : $container.find('#bitter'      ),
+      $salty       : $container.find('#salty'       ),
+      $sour        : $container.find('#sour'        ),
+      $sweet       : $container.find('#sweet'       )
     };
   };
 
-  function hideAll() {
+  //// Client-side router methods ////
+
+  // One function per feature module
+  function bitter() {
+    if (currentMod != jqueryMap.bitter)
+      currentMod.hide();
+    currentMod = jqueryMap.$bitter;
+    spa.drinks.postSection();
+  }
+
+  //// Other methods ////
+  function hideSecondaryCategories() {
     jqueryMap.$taste.hide();
     jqueryMap.$flavor.hide();
     jqueryMap.$ingredients.hide();
@@ -120,6 +185,13 @@ spa.subcategories = (function() {
     jqueryMap.$special.hide();
     jqueryMap.$random.hide();
     jqueryMap.$allDrinks.hide();
+  }
+
+  function hideTertiaryCategories() {
+    jqueryMap.$bitter.hide();
+    jqueryMap.$salty.hide();
+    jqueryMap.$sour.hide();
+    jqueryMap.$sweet.hide();
   }
 
   //// Public methods ////
@@ -144,11 +216,23 @@ spa.subcategories = (function() {
     $container.find('#allDrinks'  ).html( configMap.all_drinks_html  );
 
     setJqueryMap();
+
+    // Default content is "home" screen
+    currentMod = jqueryMap.$content;
+
+    // setup routes
+    page('/taste/bitter', bitter);
+
+    // Click event handlers
+    $('#bitter').on("click", function() {
+      hideTertiaryCategories();
+      console.log("bitter was clicked");
+    });
   };
 
   postSection = function( subView ) {
     console.log(subView);
-    hideAll();
+    hideSecondaryCategories();
     switch(subView) {
       case "taste":
         jqueryMap.$taste.show();

@@ -185,6 +185,8 @@ spa.shell = (function () {
     page('/special',     subcategories);
     page('/random',      subcategories);
     page('/all_drinks',  subcategories);
+
+    page('/taste/bitter', subcategories);
     page();
 
     // Click event handlers
