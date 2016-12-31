@@ -22,6 +22,7 @@ spa.subcategories = (function() {
         + '<section id="special"    ></section>'
         + '<section id="random"     ></section>'
         + '<section id="all-drinks" ></section>'
+        + '<section><div id="content-drinks"></div></section>'
       ,
 
       taste_html : String()
@@ -139,7 +140,8 @@ spa.subcategories = (function() {
 
     jqueryMap = {
       $container   : $container,
-      $content     : $container.find('#content-main'),
+      $content     : $container.find('#content-main'  ),
+      $drinks      : $container.find('#content-drinks'),
 
       $taste       : $container.find('#taste'       ),
       $flavor      : $container.find('#flavor'      ),
@@ -217,17 +219,23 @@ spa.subcategories = (function() {
 
     setJqueryMap();
 
+    // Initialize each feature module
+    jqueryMap.$drinks.hide();
+    spa.drinks.initModule(jqueryMap.$drinks);
+
     // Default content is "home" screen
     currentMod = jqueryMap.$content;
 
     // setup routes
     page('/taste/bitter', bitter);
 
-    // Click event handlers
+
+    //// Click event handlers ////
     $('#bitter').on("click", function() {
       hideTertiaryCategories();
       console.log("bitter was clicked");
     });
+    
   };
 
   postSection = function( subView ) {

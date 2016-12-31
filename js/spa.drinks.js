@@ -9,7 +9,7 @@ spa.drinks = (function() {
 	var
 		configMap = {
       main_html : String()
-        + '<div class="container" id="content-main">drinks page</div>'
+        + '<div class="container" id="content-main">main</div>'
     },
 
     stateMap = {
@@ -42,14 +42,14 @@ spa.drinks = (function() {
 
     // load up all the HTML
     $container.html( configMap.main_html );
-    $container.find('#test').html( configMap.main_html );
+    $container.find('#content').html( configMap.main_html );
 
     setJqueryMap();
   };
 
   postSection = function() {
-    //jqueryMap.$test.show();
-    //jqueryMap.$container.show();
+    jqueryMap.$content.show();
+    jqueryMap.$container.show();
   };
 
   return { initModule : initModule,
