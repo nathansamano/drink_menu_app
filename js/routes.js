@@ -5,6 +5,55 @@
 //// local variables ////
 'use strict';
 var
+  routeLabels = ['/',
+
+                 '/subcategories', '/taste', '/flavor',   '/ingredients',
+                 '/feeling',       '/color', '/strength', '/calories', 
+                 '/temperature',   '/glass', '/special',  '/random',
+                 '/all_drinks',
+
+                 '/taste/bitter', '/taste/salty', 
+                 '/taste/sour',   '/taste/sweet'
+
+                 '/flavor/buttery',   '/flavor/candy',    '/flavor/caramel',
+                 '/flavor/chocolate', '/flavor/cinnamon', '/flavor/coffee',
+                 '/flavor/creamy',    '/flavor/fruity',   '/flavor/herb',
+                 '/flavor/mint',      '/flavor/nutty',    '/flavor/smoky',
+                 '/flavor/spicy',     '/flavor/tart',     '/flavor/vanilla',
+
+                 '/ingredients/beer',    '/ingredients/brandy',
+                 '/ingredients/bourbon', '/ingredients/champagne',
+                 '/ingredients/gin',     '/ingredients/liqueur',
+                 '/ingredients/mixer',   '/ingredients/rum',
+                 '/ingredients/tequila', '/ingredients/whiskey',
+                 '/ingredients/wine',
+
+                 '/feeling/carbonated', '/feeling/rough', '/feeling/smooth',
+
+                 '/color/black',  '/color/blue',   '/color/clear',
+                 '/color/green',  '/color/layered-multicolored',
+                 '/color/orange', '/color/pink',   '/color/purple',
+                 '/color/red',    '/color/yellow', '/color/white',
+
+                 '/strength/non-alcoholic', '/strength/weak',
+                 '/strength/light',         '/strength/average',
+                 '/strength/strong',        '/strength/extremely_strong',
+
+                 '/calories/zero', '/calories/low', '/calories/medium',
+                 '/calories/high', '/calories/extremely_high',
+
+                 '/temperature/frozen',           '/temperature/cold',
+                 '/temperature/room_temperature', '/temperature/hot',
+
+                 '/glass/cocktail',     '/glass/Collins',   '/glass/coupe',
+                 '/glass/flute',        '/glass/hurricane', '/glass/highball',
+                 '/glass/Irish_coffee', '/glass/lowball',   '/glass/martini',
+                 '/glass/shot',         '/glass/wine',
+
+                 '/special/classic',  '/special/country',
+                 '/special/holiday',  '/special/IBA_Official',
+                 '/special/smoothie', '/special/tropical'
+  ],
   configRoutes;
 //// End variable declarations ////
 
@@ -15,67 +64,14 @@ configRoutes = function ( router, server ) {
   // Serve files from html sibling directory
   var options = {
     root: __dirname + '/../html/'
-    };
+  };
 
-  router.get('/', function(req, res) {
-    res.sendFile('index.html', options);
-  });
-
-  router.get('/subcategories', function(req, res) {
-    res.sendFile('index.html', options);
-  });
-
-  router.get('/taste', function(req, res) {
-    res.sendFile('index.html', options);
-  });
-
-  router.get('/flavor', function(req, res) {
-    res.sendFile('index.html', options);
-  });
-
-  router.get('/ingredients', function(req, res) {
-    res.sendFile('index.html', options);
-  });
-
-  router.get('/feeling', function(req, res) {
-    res.sendFile('index.html', options);
-  });
-
-  router.get('/color', function(req, res) {
-    res.sendFile('index.html', options);
-  });
-
-  router.get('/strength', function(req, res) {
-    res.sendFile('index.html', options);
-  });
-
-  router.get('/calories', function(req, res) {
-    res.sendFile('index.html', options);
-  });
-
-  router.get('/temperature', function(req, res) {
-    res.sendFile('index.html', options);
-  });
-
-  router.get('/glass', function(req, res) {
-    res.sendFile('index.html', options);
-  });
-
-  router.get('/special', function(req, res) {
-    res.sendFile('index.html', options);
-  });
-
-  router.get('/random', function(req, res) {
-    res.sendFile('index.html', options);
-  });
-
-  router.get('/all_drinks', function(req, res) {
-    res.sendFile('index.html', options);
-  });
-
-  router.get('/taste/bitter', function(req, res) {
-    res.sendFile('index.html', options);
-  });
+  // Configure for all listed labels
+  for (var i = 0; i < routeLabels.length; i++) {
+    router.get(routeLabels[i], function(req, res) {
+      res.sendFile('index.html', options);
+    });
+  }
 
 }; 
  
