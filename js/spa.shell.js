@@ -143,6 +143,7 @@ spa.shell = (function () {
 
   // One function per feature module
   function subcategories() {
+    console.log(subView);
     if (currentMod != jqueryMap.subcategories)
       currentMod.hide();
     currentMod = jqueryMap.$subcategories;

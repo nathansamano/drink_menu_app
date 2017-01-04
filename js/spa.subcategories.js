@@ -120,9 +120,9 @@ spa.subcategories = (function() {
             + '<div class="col-lg-5">'
               + '<div class="bs-component" style="margin-bottom: 15px;">'
                 + '<div class="btn-group btn-group-justified">'
-                  + '<a href="/feeling/carbonated" class="btn btn-default" id="carbonated">Beer</a>'
-                  + '<a href="/feeling/rough"      class="btn btn-default" id="rough"     >Brandy</a>'
-                  + '<a href="/feeling/smooth"     class="btn btn-default" id="smooth"    >Bourbon</a>'
+                  + '<a href="/feeling/carbonated" class="btn btn-default" id="carbonated">Carbonated</a>'
+                  + '<a href="/feeling/rough"      class="btn btn-default" id="rough"     >Rough</a>'
+                  + '<a href="/feeling/smooth"     class="btn btn-default" id="smooth"    >Smooth</a>'
                 + '</div>'
               + '</div>'
         + '</div></div></div></div>'
@@ -247,10 +247,10 @@ spa.subcategories = (function() {
               + '</div>'
               + '<div class="bs-component" style="margin-bottom: 15px;">'
                 + '<div class="btn-group btn-group-justified">'
-                  + '<a href="/glass/martini" class="btn btn-default" id="martini">Martini</a>'
-                  + '<a href="/glass/shot"    class="btn btn-default" id="shot"   >Shot</a>'
-                  + '<a href="/glass/wine"    class="btn btn-default" id="wine"   >Wine</a>'
-                  + '<a href="/glass"         class="btn btn-default" id="blank"  ></a>'  
+                  + '<a href="/glass/martini" class="btn btn-default" id="martini"   >Martini</a>'
+                  + '<a href="/glass/shot"    class="btn btn-default" id="shot"      >Shot</a>'
+                  + '<a href="/glass/wine"    class="btn btn-default" id="wine-glass">Wine</a>'
+                  + '<a href="/glass"         class="btn btn-default" id="blank"     ></a>'  
                 + '</div>'
               + '</div>'
         + '</div></div></div></div>'
@@ -300,6 +300,10 @@ spa.subcategories = (function() {
   //// end local variables ////
 
   //// DOM interaction methods ////
+
+  /* 
+   * Note: eliminate repetitiveness in v0.0.2
+   */
 
   setJqueryMap = function() {
     var $container = stateMap.$container;
@@ -361,7 +365,7 @@ spa.subcategories = (function() {
 
       $black       : $container.find('#black'       ),
       $blue        : $container.find('#blue'        ),
-      $clear       : $container.find('#clear'       ),
+      $clear_color : $container.find('#clear'       ),
       $green       : $container.find('#green'       ),
       $lmc         : $container.find('#layered-multicolored'),
       $orange      : $container.find('#orange'      ),
@@ -399,7 +403,7 @@ spa.subcategories = (function() {
       $lowball       : $container.find('#lowball'         ),
       $martini       : $container.find('#martini'         ),
       $shot          : $container.find('#shot'            ),
-      $wine          : $container.find('#wine'            ),
+      $wine_glass    : $container.find('#wine-glass'      ),
 
       $classic       : $container.find('#classic'         ),
       $country       : $container.find('#country'         ),
@@ -412,7 +416,7 @@ spa.subcategories = (function() {
 
   //// Client-side router methods ////
 
-  // One function per feature module
+  //////////////////// One function per feature module ////////////////////
   function bitter() {
     if (currentMod != jqueryMap.bitter)
       currentMod.hide();
@@ -420,7 +424,533 @@ spa.subcategories = (function() {
     spa.drinks.postSection();
   }
 
-  //// Other methods ////
+  function salty() {
+    if (currentMod != jqueryMap.salty)
+      currentMod.hide();
+    currentMod = jqueryMap.$salty;
+    spa.drinks.postSection();
+  }
+
+  function sour() {
+    if (currentMod != jqueryMap.sour)
+      currentMod.hide();
+    currentMod = jqueryMap.$sour;
+    spa.drinks.postSection();
+  }
+
+  function sweet() {
+    if (currentMod != jqueryMap.sweet)
+      currentMod.hide();
+    currentMod = jqueryMap.$sweet;
+    spa.drinks.postSection();
+  }
+
+  function buttery() {
+    if (currentMod != jqueryMap.buttery)
+      currentMod.hide();
+    currentMod = jqueryMap.$buttery;
+    spa.drinks.postSection();
+  }
+
+  function candy() {
+    if (currentMod != jqueryMap.candy)
+      currentMod.hide();
+    currentMod = jqueryMap.$candy;
+    spa.drinks.postSection();
+  }
+
+  function caramel() {
+    if (currentMod != jqueryMap.caramel)
+      currentMod.hide();
+    currentMod = jqueryMap.$caramel;
+    spa.drinks.postSection();
+  }
+
+  function chocolate() {
+    if (currentMod != jqueryMap.chocolate)
+      currentMod.hide();
+    currentMod = jqueryMap.$chocolate;
+    spa.drinks.postSection();
+  }
+
+  function cinnamon() {
+    if (currentMod != jqueryMap.cinnamon)
+      currentMod.hide();
+    currentMod = jqueryMap.$cinnamon;
+    spa.drinks.postSection();
+  }
+
+  function coffee() {
+    if (currentMod != jqueryMap.coffee)
+      currentMod.hide();
+    currentMod = jqueryMap.$coffee;
+    spa.drinks.postSection();
+  }
+
+  function creamy() {
+    if (currentMod != jqueryMap.creamy)
+      currentMod.hide();
+    currentMod = jqueryMap.$creamy;
+    spa.drinks.postSection();
+  }
+
+  function fruity() {
+    if (currentMod != jqueryMap.fruity)
+      currentMod.hide();
+    currentMod = jqueryMap.$fruity;
+    spa.drinks.postSection();
+  }
+
+  function herb() {
+    if (currentMod != jqueryMap.herb)
+      currentMod.hide();
+    currentMod = jqueryMap.$herb;
+    spa.drinks.postSection();
+  }
+
+  function mint() {
+    if (currentMod != jqueryMap.mint)
+      currentMod.hide();
+    currentMod = jqueryMap.$mint;
+    spa.drinks.postSection();
+  }
+
+  function nutty() {
+    if (currentMod != jqueryMap.nutty)
+      currentMod.hide();
+    currentMod = jqueryMap.$nutty;
+    spa.drinks.postSection();
+  }
+
+  function smoky() {
+    if (currentMod != jqueryMap.smoky)
+      currentMod.hide();
+    currentMod = jqueryMap.$smoky;
+    spa.drinks.postSection();
+  }
+
+  function spicy() {
+    if (currentMod != jqueryMap.spicy)
+      currentMod.hide();
+    currentMod = jqueryMap.$spicy;
+    spa.drinks.postSection();
+  }
+
+  function tart() {
+    if (currentMod != jqueryMap.tart)
+      currentMod.hide();
+    currentMod = jqueryMap.$tart;
+    spa.drinks.postSection();
+  }
+
+  function vanilla() {
+    if (currentMod != jqueryMap.vanilla)
+      currentMod.hide();
+    currentMod = jqueryMap.$vanilla;
+    spa.drinks.postSection();
+  }
+
+  function beer() {
+    if (currentMod != jqueryMap.beer)
+      currentMod.hide();
+    currentMod = jqueryMap.$beer;
+    spa.drinks.postSection();
+  }
+
+  function brandy() {
+    if (currentMod != jqueryMap.brandy)
+      currentMod.hide();
+    currentMod = jqueryMap.$brandy;
+    spa.drinks.postSection();
+  }
+
+  function bourbon() {
+    if (currentMod != jqueryMap.bourbon)
+      currentMod.hide();
+    currentMod = jqueryMap.$bourbon;
+    spa.drinks.postSection();
+  }
+
+  function champagne() {
+    if (currentMod != jqueryMap.champagne)
+      currentMod.hide();
+    currentMod = jqueryMap.$champagne;
+    spa.drinks.postSection();
+  }
+
+  function gin() {
+    if (currentMod != jqueryMap.gin)
+      currentMod.hide();
+    currentMod = jqueryMap.$gin;
+    spa.drinks.postSection();
+  }
+
+  function liqueur() {
+    if (currentMod != jqueryMap.liqueur)
+      currentMod.hide();
+    currentMod = jqueryMap.$liqueur;
+    spa.drinks.postSection();
+  }
+
+  function mixer() {
+    if (currentMod != jqueryMap.mixer)
+      currentMod.hide();
+    currentMod = jqueryMap.$mixer;
+    spa.drinks.postSection();
+  }
+
+  function rum() {
+    if (currentMod != jqueryMap.rum)
+      currentMod.hide();
+    currentMod = jqueryMap.$rum;
+    spa.drinks.postSection();
+  }
+
+  function tequila() {
+    if (currentMod != jqueryMap.tequila)
+      currentMod.hide();
+    currentMod = jqueryMap.$tequila;
+    spa.drinks.postSection();
+  }
+
+  function whiskey() {
+    if (currentMod != jqueryMap.whiskey)
+      currentMod.hide();
+    currentMod = jqueryMap.$whiskey;
+    spa.drinks.postSection();
+  }
+
+  function wine() {
+    if (currentMod != jqueryMap.wine)
+      currentMod.hide();
+    currentMod = jqueryMap.$wine;
+    spa.drinks.postSection();
+  }
+
+  function carbonated() {
+    if (currentMod != jqueryMap.carbonated)
+      currentMod.hide();
+    currentMod = jqueryMap.$carbonated;
+    spa.drinks.postSection();
+  }
+
+  function rough() {
+    if (currentMod != jqueryMap.rough)
+      currentMod.hide();
+    currentMod = jqueryMap.$rough;
+    spa.drinks.postSection();
+  }
+
+  function smooth() {
+    if (currentMod != jqueryMap.smooth)
+      currentMod.hide();
+    currentMod = jqueryMap.$smooth;
+    spa.drinks.postSection();
+  }
+
+  function black() {
+    if (currentMod != jqueryMap.black)
+      currentMod.hide();
+    currentMod = jqueryMap.$black;
+    spa.drinks.postSection();
+  }
+
+  function blue() {
+    if (currentMod != jqueryMap.blue)
+      currentMod.hide();
+    currentMod = jqueryMap.$blue;
+    spa.drinks.postSection();
+  }
+
+  function clearColor() {
+    if (currentMod != jqueryMap.clear_color)
+      currentMod.hide();
+    currentMod = jqueryMap.$clear_color;
+    spa.drinks.postSection();
+  }
+
+  function green() {
+    if (currentMod != jqueryMap.green)
+      currentMod.hide();
+    currentMod = jqueryMap.$green;
+    spa.drinks.postSection();
+  }
+
+  function lmc() {
+    if (currentMod != jqueryMap.lmc)
+      currentMod.hide();
+    currentMod = jqueryMap.$lmc;
+    spa.drinks.postSection();
+  }
+
+  function orange() {
+    if (currentMod != jqueryMap.orange)
+      currentMod.hide();
+    currentMod = jqueryMap.$orange;
+    spa.drinks.postSection();
+  }
+
+  function pink() {
+    if (currentMod != jqueryMap.pink)
+      currentMod.hide();
+    currentMod = jqueryMap.$pink;
+    spa.drinks.postSection();
+  }
+
+  function purple() {
+    if (currentMod != jqueryMap.purple)
+      currentMod.hide();
+    currentMod = jqueryMap.$purple;
+    spa.drinks.postSection();
+  }
+
+  function red() {
+    if (currentMod != jqueryMap.red)
+      currentMod.hide();
+    currentMod = jqueryMap.$red;
+    spa.drinks.postSection();
+  }
+
+  function yellow() {
+    if (currentMod != jqueryMap.yellow)
+      currentMod.hide();
+    currentMod = jqueryMap.$yellow;
+    spa.drinks.postSection();
+  }
+
+  function white() {
+    if (currentMod != jqueryMap.white)
+      currentMod.hide();
+    currentMod = jqueryMap.$white;
+    spa.drinks.postSection();
+  }
+
+  function nonAlcoholic() {
+    if (currentMod != jqueryMap.non_alcoholic)
+      currentMod.hide();
+    currentMod = jqueryMap.$non_alcoholic;
+    spa.drinks.postSection();
+  }
+
+  function weak() {
+    if (currentMod != jqueryMap.weak)
+      currentMod.hide();
+    currentMod = jqueryMap.$weak;
+    spa.drinks.postSection();
+  }
+
+  function light() {
+    if (currentMod != jqueryMap.light)
+      currentMod.hide();
+    currentMod = jqueryMap.$light;
+    spa.drinks.postSection();
+  }
+
+  function average() {
+    if (currentMod != jqueryMap.average)
+      currentMod.hide();
+    currentMod = jqueryMap.$average;
+    spa.drinks.postSection();
+  }
+
+  function strong() {
+    if (currentMod != jqueryMap.strong)
+      currentMod.hide();
+    currentMod = jqueryMap.$strong;
+    spa.drinks.postSection();
+  }
+
+  function extremelyStrong() {
+    if (currentMod != jqueryMap.ex_strong)
+      currentMod.hide();
+    currentMod = jqueryMap.$ex_strong;
+    spa.drinks.postSection();
+  }
+
+  function zero() {
+    if (currentMod != jqueryMap.zero)
+      currentMod.hide();
+    currentMod = jqueryMap.$zero;
+    spa.drinks.postSection();
+  }
+
+  function low() {
+    if (currentMod != jqueryMap.low)
+      currentMod.hide();
+    currentMod = jqueryMap.$low;
+    spa.drinks.postSection();
+  }
+
+  function medium() {
+    if (currentMod != jqueryMap.medium)
+      currentMod.hide();
+    currentMod = jqueryMap.$medium;
+    spa.drinks.postSection();
+  }
+
+  function high() {
+    if (currentMod != jqueryMap.high)
+      currentMod.hide();
+    currentMod = jqueryMap.$high;
+    spa.drinks.postSection();
+  }
+
+  function extremelyHigh() {
+    if (currentMod != jqueryMap.ex_high)
+      currentMod.hide();
+    currentMod = jqueryMap.$ex_high;
+    spa.drinks.postSection();
+  }
+
+  function frozen() {
+    if (currentMod != jqueryMap.frozen)
+      currentMod.hide();
+    currentMod = jqueryMap.$frozen;
+    spa.drinks.postSection();
+  }
+
+  function cold() {
+    if (currentMod != jqueryMap.cold)
+      currentMod.hide();
+    currentMod = jqueryMap.$cold;
+    spa.drinks.postSection();
+  }
+
+  function roomTemperature() {
+    if (currentMod != jqueryMap.room_temp)
+      currentMod.hide();
+    currentMod = jqueryMap.$room_temp;
+    spa.drinks.postSection();
+  }
+
+  function hot() {
+    if (currentMod != jqueryMap.hot)
+      currentMod.hide();
+    currentMod = jqueryMap.$hot;
+    spa.drinks.postSection();
+  }
+
+  function cocktail() {
+    if (currentMod != jqueryMap.cocktail)
+      currentMod.hide();
+    currentMod = jqueryMap.$cocktail;
+    spa.drinks.postSection();
+  }
+
+  function Collins() {
+    if (currentMod != jqueryMap.Collins)
+      currentMod.hide();
+    currentMod = jqueryMap.$Collins;
+    spa.drinks.postSection();
+  }
+
+  function coupe() {
+    if (currentMod != jqueryMap.coupe)
+      currentMod.hide();
+    currentMod = jqueryMap.$coupe;
+    spa.drinks.postSection();
+  }
+
+  function flute() {
+    if (currentMod != jqueryMap.flute)
+      currentMod.hide();
+    currentMod = jqueryMap.$flute;
+    spa.drinks.postSection();
+  }
+
+  function hurricane() {
+    if (currentMod != jqueryMap.hurricane)
+      currentMod.hide();
+    currentMod = jqueryMap.$hurricane;
+    spa.drinks.postSection();
+  }
+
+  function highball() {
+    if (currentMod != jqueryMap.highball)
+      currentMod.hide();
+    currentMod = jqueryMap.$highball;
+    spa.drinks.postSection();
+  }
+
+  function irishCoffee() {
+    if (currentMod != jqueryMap.irish_coffee)
+      currentMod.hide();
+    currentMod = jqueryMap.$irish_coffee;
+    spa.drinks.postSection();
+  }
+
+  function lowball() {
+    if (currentMod != jqueryMap.lowball)
+      currentMod.hide();
+    currentMod = jqueryMap.$lowball;
+    spa.drinks.postSection();
+  }
+
+  function martini() {
+    if (currentMod != jqueryMap.martini)
+      currentMod.hide();
+    currentMod = jqueryMap.$martini;
+    spa.drinks.postSection();
+  }
+
+  function shot() {
+    if (currentMod != jqueryMap.shot)
+      currentMod.hide();
+    currentMod = jqueryMap.$shot;
+    spa.drinks.postSection();
+  }
+
+  function wineGlass() {
+    if (currentMod != jqueryMap.wine)
+      currentMod.hide();
+    currentMod = jqueryMap.$wine;
+    spa.drinks.postSection();
+  }
+
+  function classic() {
+    if (currentMod != jqueryMap.classic)
+      currentMod.hide();
+    currentMod = jqueryMap.$classic;
+    spa.drinks.postSection();
+  }
+
+  function country() {
+    if (currentMod != jqueryMap.country)
+      currentMod.hide();
+    currentMod = jqueryMap.$country;
+    spa.drinks.postSection();
+  }
+
+  function holiday() {
+    if (currentMod != jqueryMap.holiday)
+      currentMod.hide();
+    currentMod = jqueryMap.$holiday;
+    spa.drinks.postSection();
+  }
+
+  function ibaOfficial() {
+    if (currentMod != jqueryMap.iba_official)
+      currentMod.hide();
+    currentMod = jqueryMap.$iba_official;
+    spa.drinks.postSection();
+  }
+
+  function smoothie() {
+    if (currentMod != jqueryMap.smoothie)
+      currentMod.hide();
+    currentMod = jqueryMap.$smoothie;
+    spa.drinks.postSection();
+  }
+
+  function tropical() {
+    if (currentMod != jqueryMap.tropical)
+      currentMod.hide();
+    currentMod = jqueryMap.$tropical;
+    spa.drinks.postSection();
+  }
+
+  //////////////////// Other methods ////////////////////
+
   function hideSecondaryCategories() {
     jqueryMap.$taste.hide();
     jqueryMap.$flavor.hide();
@@ -476,7 +1006,7 @@ spa.subcategories = (function() {
 
     jqueryMap.$black.hide();
     jqueryMap.$blue.hide();
-    jqueryMap.$clear.hide();
+    jqueryMap.$clear_color.hide();
     jqueryMap.$green.hide();
     jqueryMap.$lmc.hide();
     jqueryMap.$orange.hide();
@@ -556,11 +1086,95 @@ spa.subcategories = (function() {
 
     // setup routes
     page('/taste/bitter', bitter);
+    page('/taste/salty' , salty );
+    page('/taste/sour'  , sour  );
+    page('/taste/sweet' , sweet );
+
+    page('/flavor/buttery'  , buttery  );
+    page('/flavor/candy'    , candy    );
+    page('/flavor/caramel'  , caramel  );
+    page('/flavor/chocolate', chocolate);
+    page('/flavor/cinnamon' , cinnamon );
+    page('/flavor/coffee'   , coffee   );
+    page('/flavor/creamy'   , creamy   );
+    page('/flavor/fruity'   , fruity   );
+    page('/flavor/herb'     , herb     );
+    page('/flavor/mint'     , mint     );
+    page('/flavor/nutty'    , nutty    );
+    page('/flavor/smoky'    , smoky    );
+    page('/flavor/spicy'    , spicy    );
+    page('/flavor/tart'     , tart     );
+    page('/flavor/vanilla'  , vanilla  );
+
+    page('/ingredients/beer'     , beer     );
+    page('/ingredients/brandy'   , brandy   );
+    page('/ingredients/bourbon'  , bourbon  );
+    page('/ingredients/champagne', champagne);
+    page('/ingredients/gin'      , gin      );
+    page('/ingredients/liqueur'  , liqueur  );
+    page('/ingredients/mixer'    , mixer    );
+    page('/ingredients/rum'      , rum      );
+    page('/ingredients/tequila'  , tequila  );
+    page('/ingredients/whiskey'  , whiskey  );
+    page('/ingredients/wine'     , wine     );
+
+    page('/feeling/carbonated', carbonated);
+    page('/feeling/rough'     , rough     );
+    page('/feeling/smooth'    , smooth    );
+
+    page('/color/black'                , black     );
+    page('/color/blue'                 , blue      );
+    page('/color/clear'                , clearColor);
+    page('/color/green'                , green     );
+    page('/color/layered-multicolored' , lmc       );
+    page('/color/orange'               , orange    );
+    page('/color/pink'                 , pink      );
+    page('/color/purple'               , purple    );
+    page('/color/red'                  , red       );
+    page('/color/yellow'               , yellow    );
+    page('/color/white'                , white     );
+
+    page('/strength/non-alcoholic'   , nonAlcoholic   );
+    page('/strength/weak'            , weak           );
+    page('/strength/light'           , light          );
+    page('/strength/average'         , average        );
+    page('/strength/strong'          , strong         );
+    page('/strength/extremely-strong', extremelyStrong);
+
+    page('/calories/zero'          , zero         );
+    page('/calories/low'           , low          );
+    page('/calories/medium'        , medium       );
+    page('/calories/high'          , high         );
+    page('/calories/extremely-high', extremelyHigh);
+
+    page('/temperature/frozen'          , frozen         );
+    page('/temperature/cold'            , cold           );
+    page('/temperature/room-temperature', roomTemperature);
+    page('/temperature/hot'             , hot            );
+
+    page('/glass/cocktail'    , cocktail   );
+    page('/glass/Collins'     , Collins    );
+    page('/glass/coupe'       , coupe      );
+    page('/glass/flute'       , flute      );
+    page('/glass/hurricane'   , hurricane  );
+    page('/glass/highball'    , highball   );
+    page('/glass/irish-coffee', irishCoffee);
+    page('/glass/lowball'     , lowball    );
+    page('/glass/martini'     , martini    );
+    page('/glass/shot'        , shot       );
+    page('/glass/wine-glass'  , wineGlass  );
+
+    page('/special/classic'     , classic    );
+    page('/special/country'     , country    );
+    page('/special/holiday'     , holiday    );
+    page('/special/iba-official', ibaOfficial);
+    page('/special/smoothie'    , smoothie   );
+    page('/special/tropical'    , tropical   );
 
 
     //// Click event handlers ////
     $('#bitter').on("click", function() {
-      hideTertiaryCategories();
+      //hideTertiaryCategories();
       console.log("bitter was clicked");
     });
 
@@ -568,42 +1182,55 @@ spa.subcategories = (function() {
 
   postSection = function( subView ) {
     console.log(subView);
+    jqueryMap.$drinks.hide();
     hideSecondaryCategories();
     switch(subView) {
       case "taste":
+        currentMod = jqueryMap.$taste;
         jqueryMap.$taste.show();
         break;
       case "flavor":
+        currentMod = jqueryMap.$flavor;
         jqueryMap.$flavor.show();
         break;
       case "ingredients":
+        currentMod = jqueryMap.$ingredients;
         jqueryMap.$ingredients.show();
         break;
       case "feeling":
+        currentMod = jqueryMap.$feeling;
         jqueryMap.$feeling.show();
         break;
       case "color":
+        currentMod = jqueryMap.$color;
         jqueryMap.$feeling.show();
         break;
       case "strength":
+        currentMod = jqueryMap.$strength;
         jqueryMap.$strength.show();
         break;
       case "calories":
+        currentMod = jqueryMap.$calories;
         jqueryMap.$calories.show();
         break;
       case "temperature":
+        currentMod = jqueryMap.$temperature;
         jqueryMap.$temperature.show();
         break;
       case "glass":
+        currentMod = jqueryMap.$glass;
         jqueryMap.$glass.show();
         break;
       case "special":
+        currentMod = jqueryMap.$special;
         jqueryMap.$special.show();
         break;
       case "random":
+        currentMod = jqueryMap.$random;
         jqueryMap.$random.show();
         break;
       case "allDrinks":
+        currentMod = jqueryMap.$allDrinks;
         jqueryMap.$allDrinks.show();
         break;
     }

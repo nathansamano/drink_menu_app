@@ -13,7 +13,7 @@ var
                  '/all_drinks',
 
                  '/taste/bitter', '/taste/salty', 
-                 '/taste/sour',   '/taste/sweet'
+                 '/taste/sour',   '/taste/sweet',
 
                  '/flavor/buttery',   '/flavor/candy',    '/flavor/caramel',
                  '/flavor/chocolate', '/flavor/cinnamon', '/flavor/coffee',
