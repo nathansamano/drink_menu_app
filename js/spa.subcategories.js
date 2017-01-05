@@ -107,7 +107,7 @@ spa.subcategories = (function() {
                   + '<a href="/ingredients/tequila" class="btn btn-default" id="tequila"  >Tequila</a>'
                   + '<a href="/ingredients/whiskey" class="btn btn-default" id="whiskey"  >Whiskey</a>'
                   + '<a href="/ingredients/wine"    class="btn btn-default" id="wine"     >Wine</a>'
-                  + '<a href="/ingredients"         class="btn btn-default" id="blank"    ></a>'  
+                  + '<div                           class="btn btn-default" id="blank"    ></div>'  
                 + '</div>'
               + '</div>'
         + '</div></div></div></div>'
@@ -154,7 +154,7 @@ spa.subcategories = (function() {
                   + '<a href="/color/red"    class="btn btn-default" id="red"   >Red</a>'
                   + '<a href="/color/yellow" class="btn btn-default" id="yellow">Yellow</a>'
                   + '<a href="/color/white"  class="btn btn-default" id="white" >White</a>'
-                  + '<a href="/color"        class="btn btn-default" id="blank" ></a>'  
+                  + '<div                    class="btn btn-default" id="blank" ></div>'  
                 + '</div>'
               + '</div>'
         + '</div></div></div></div>'
@@ -189,16 +189,16 @@ spa.subcategories = (function() {
             + '<div class="col-lg-5">'
               + '<div class="bs-component" style="margin-bottom: 15px;">'
                 + '<div class="btn-group btn-group-justified">'
-                  + '<a href="/calories/zero"   class="btn btn-default" id="non-alcoholic">Non-alcoholic</a>'
-                  + '<a href="/calories/low"    class="btn btn-default" id="weak"         >Weak</a>'
-                  + '<a href="/calories/medium" class="btn btn-default" id="light"        >Light</a>'
+                  + '<a href="/calories/zero"   class="btn btn-default" id="zero"  >Zero</a>'
+                  + '<a href="/calories/low"    class="btn btn-default" id="low"   >Low</a>'
+                  + '<a href="/calories/medium" class="btn btn-default" id="medium">Medium</a>'
                 + '</div>'
               + '</div>'
               + '<div class="bs-component" style="margin-bottom: 15px;">'
                 + '<div class="btn-group btn-group-justified">'
                   + '<a href="/calories/high"           class="btn btn-default" id="high"          >High</a>'
                   + '<a href="/calories/extremely_high" class="btn btn-default" id="extremely-high">Extremely High</a>'
-                  + '<a href="/calories"                class="btn btn-default" id="blank"         ></a>'
+                  + '<div                               class="btn btn-default" id="blank"         ></div>'
                 + '</div>'
               + '</div>'
         + '</div></div></div></div>'
@@ -250,7 +250,7 @@ spa.subcategories = (function() {
                   + '<a href="/glass/martini" class="btn btn-default" id="martini"   >Martini</a>'
                   + '<a href="/glass/shot"    class="btn btn-default" id="shot"      >Shot</a>'
                   + '<a href="/glass/wine"    class="btn btn-default" id="wine-glass">Wine</a>'
-                  + '<a href="/glass"         class="btn btn-default" id="blank"     ></a>'  
+                  + '<div                     class="btn btn-default" id="blank"     ></div>'  
                 + '</div>'
               + '</div>'
         + '</div></div></div></div>'
@@ -279,12 +279,13 @@ spa.subcategories = (function() {
       ,
 
       random_html : String()
-      
+        + '<div class="container" id="content-main">'
+        + '</div>'
       ,
 
       all_drinks_html : String()
-      
-      
+        + '<div class="container" id="content-main">'
+        + '</div>'
     },
 
     stateMap = {
@@ -949,6 +950,20 @@ spa.subcategories = (function() {
     spa.drinks.postSection();
   }
 
+  function random() {
+    if (currentMod != jqueryMap.random)
+      currentMod.hide();
+    currentMod = jqueryMap.$random;
+    spa.drinks.postSection();
+  }
+
+  function allDrinks() {
+    if (currentMod != jqueryMap.all_drinks)
+      currentMod.hide();
+    currentMod = jqueryMap.$all_drinks;
+    spa.drinks.postSection();
+  }
+
   //////////////////// Other methods ////////////////////
 
   function hideSecondaryCategories() {
@@ -1139,17 +1154,17 @@ spa.subcategories = (function() {
     page('/strength/light'           , light          );
     page('/strength/average'         , average        );
     page('/strength/strong'          , strong         );
-    page('/strength/extremely-strong', extremelyStrong);
+    page('/strength/extremely_strong', extremelyStrong);
 
     page('/calories/zero'          , zero         );
     page('/calories/low'           , low          );
     page('/calories/medium'        , medium       );
     page('/calories/high'          , high         );
-    page('/calories/extremely-high', extremelyHigh);
+    page('/calories/extremely_high', extremelyHigh);
 
     page('/temperature/frozen'          , frozen         );
     page('/temperature/cold'            , cold           );
-    page('/temperature/room-temperature', roomTemperature);
+    page('/temperature/room_temperature', roomTemperature);
     page('/temperature/hot'             , hot            );
 
     page('/glass/cocktail'    , cocktail   );
@@ -1158,18 +1173,21 @@ spa.subcategories = (function() {
     page('/glass/flute'       , flute      );
     page('/glass/hurricane'   , hurricane  );
     page('/glass/highball'    , highball   );
-    page('/glass/irish-coffee', irishCoffee);
+    page('/glass/Irish_coffee', irishCoffee);
     page('/glass/lowball'     , lowball    );
     page('/glass/martini'     , martini    );
     page('/glass/shot'        , shot       );
-    page('/glass/wine-glass'  , wineGlass  );
+    page('/glass/wine'        , wineGlass  );
 
     page('/special/classic'     , classic    );
     page('/special/country'     , country    );
     page('/special/holiday'     , holiday    );
-    page('/special/iba-official', ibaOfficial);
+    page('/special/IBA_Official', ibaOfficial);
     page('/special/smoothie'    , smoothie   );
     page('/special/tropical'    , tropical   );
+
+    page('/random'    , random   );
+    page('/all_drinks', allDrinks);
 
 
     //// Click event handlers ////
@@ -1203,7 +1221,7 @@ spa.subcategories = (function() {
         break;
       case "color":
         currentMod = jqueryMap.$color;
-        jqueryMap.$feeling.show();
+        jqueryMap.$color.show();
         break;
       case "strength":
         currentMod = jqueryMap.$strength;
