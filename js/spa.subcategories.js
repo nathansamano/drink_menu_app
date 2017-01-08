@@ -950,7 +950,7 @@ spa.subcategories = (function() {
     spa.drinks.postSection();
   }
 
-  function random() {
+  function randomDrink() {
     if (currentMod != jqueryMap.random)
       currentMod.hide();
     currentMod = jqueryMap.$random;
@@ -1186,8 +1186,8 @@ spa.subcategories = (function() {
     page('/special/smoothie'    , smoothie   );
     page('/special/tropical'    , tropical   );
 
-    page('/random'    , random   );
-    page('/all_drinks', allDrinks);
+    //page('/random'    , randomDrink);
+    //page('/all_drinks', allDrinks  );
 
 
     //// Click event handlers ////
@@ -1232,6 +1232,7 @@ spa.subcategories = (function() {
         jqueryMap.$calories.show();
         break;
       case "temperature":
+        console.log("case is temperature");
         currentMod = jqueryMap.$temperature;
         jqueryMap.$temperature.show();
         break;
@@ -1246,10 +1247,12 @@ spa.subcategories = (function() {
       case "random":
         currentMod = jqueryMap.$random;
         jqueryMap.$random.show();
+        randomDrink();
         break;
       case "allDrinks":
-        currentMod = jqueryMap.$allDrinks;
+        currentMod = jqueryMap.$allDrinks
         jqueryMap.$allDrinks.show();
+        allDrinks();
         break;
     }
 
