@@ -10,7 +10,7 @@
  */
 
 var INGREDIENTS = [
-  {name: "Angostura Bitters", ABV:  0, calories:   2},
+  {name: "Angostura Bitters", ABV: 45, calories:   2},
   {name: "Bourbon",           ABV: 40, calories:  97},
   {name: "Rye Whiskey",       ABV: 45, calories: 104},
   {name: "Sugar Cube",        ABV:  0, calories:  12},
