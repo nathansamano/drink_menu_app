@@ -6,53 +6,50 @@
 'use strict';
 var
   routeLabels = ['/',
+    '/taste', '/flavor'  , '/ingredients', '/feeling'    ,
+    '/color', '/strength', '/calories'   , '/temperature',
+    '/glass', '/special' , '/random'     , '/all_drinks' ,
 
-                 '/subcategories', '/taste', '/flavor',   '/ingredients',
-                 '/feeling',       '/color', '/strength', '/calories', 
-                 '/temperature',   '/glass', '/special',  '/random',
-                 '/all_drinks',
+    '/taste/bitter', '/taste/salty', '/taste/sour', '/taste/sweet',
 
-                 '/taste/bitter', '/taste/salty', 
-                 '/taste/sour',   '/taste/sweet',
+    '/flavor/buttery'  , '/flavor/candy'   , '/flavor/caramel',
+    '/flavor/chocolate', '/flavor/cinnamon', '/flavor/coffee' ,
+    '/flavor/creamy'   , '/flavor/fruity'  , '/flavor/herb'   ,
+    '/flavor/mint'     , '/flavor/nutty'   , '/flavor/smoky'  ,
+    '/flavor/spicy'    , '/flavor/tart'    , '/flavor/vanilla',
 
-                 '/flavor/buttery',   '/flavor/candy',    '/flavor/caramel',
-                 '/flavor/chocolate', '/flavor/cinnamon', '/flavor/coffee',
-                 '/flavor/creamy',    '/flavor/fruity',   '/flavor/herb',
-                 '/flavor/mint',      '/flavor/nutty',    '/flavor/smoky',
-                 '/flavor/spicy',     '/flavor/tart',     '/flavor/vanilla',
+    '/ingredients/beer'   , '/ingredients/brandy'   ,
+    '/ingredients/bourbon', '/ingredients/champagne',
+    '/ingredients/gin'    , '/ingredients/liqueur'  ,
+    '/ingredients/mixer'  , '/ingredients/rum'      ,
+    '/ingredients/tequila', '/ingredients/whiskey'  ,
+    '/ingredients/wine'   ,
 
-                 '/ingredients/beer',    '/ingredients/brandy',
-                 '/ingredients/bourbon', '/ingredients/champagne',
-                 '/ingredients/gin',     '/ingredients/liqueur',
-                 '/ingredients/mixer',   '/ingredients/rum',
-                 '/ingredients/tequila', '/ingredients/whiskey',
-                 '/ingredients/wine',
+    '/feeling/carbonated', '/feeling/rough', '/feeling/smooth',
 
-                 '/feeling/carbonated', '/feeling/rough', '/feeling/smooth',
+    '/color/black' , '/color/blue'  , '/color/clear' ,
+    '/color/green' , '/color/layered-multicolored'   ,
+    '/color/orange', '/color/pink'  , '/color/purple',
+    '/color/red'   , '/color/yellow', '/color/white' ,
 
-                 '/color/black',  '/color/blue',   '/color/clear',
-                 '/color/green',  '/color/layered-multicolored',
-                 '/color/orange', '/color/pink',   '/color/purple',
-                 '/color/red',    '/color/yellow', '/color/white',
+    '/strength/non-alcoholic', '/strength/weak'            ,
+    '/strength/light'        , '/strength/average'         ,
+    '/strength/strong'       , '/strength/extremely_strong',
 
-                 '/strength/non-alcoholic', '/strength/weak',
-                 '/strength/light',         '/strength/average',
-                 '/strength/strong',        '/strength/extremely_strong',
+    '/calories/zero', '/calories/low', '/calories/medium',
+    '/calories/high', '/calories/extremely_high'         ,
 
-                 '/calories/zero', '/calories/low', '/calories/medium',
-                 '/calories/high', '/calories/extremely_high',
+    '/temperature/frozen'          , '/temperature/cold',
+    '/temperature/room_temperature', '/temperature/hot' ,
 
-                 '/temperature/frozen',           '/temperature/cold',
-                 '/temperature/room_temperature', '/temperature/hot',
+    '/glass/cocktail'    , '/glass/Collins'  , '/glass/coupe'   ,
+    '/glass/flute'       , '/glass/hurricane', '/glass/highball',
+    '/glass/Irish_coffee', '/glass/lowball'  , '/glass/martini' ,
+    '/glass/shot'        , '/glass/wine'     ,
 
-                 '/glass/cocktail',     '/glass/Collins',   '/glass/coupe',
-                 '/glass/flute',        '/glass/hurricane', '/glass/highball',
-                 '/glass/Irish_coffee', '/glass/lowball',   '/glass/martini',
-                 '/glass/shot',         '/glass/wine',
-
-                 '/special/classic',  '/special/country',
-                 '/special/holiday',  '/special/IBA_Official',
-                 '/special/smoothie', '/special/tropical'
+    '/special/classic' , '/special/country'     ,
+    '/special/holiday' , '/special/IBA_Official',
+    '/special/smoothie', '/special/tropical'
   ],
   configRoutes;
 //// End variable declarations ////
