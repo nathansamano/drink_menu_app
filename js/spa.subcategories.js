@@ -1,7 +1,6 @@
 /*
  * spa.subcategories.js
- * Displays the sub-categories from the category selected
- * from main page
+ * Displays the sub-categories from the category selected from main page
  */
 
 spa.subcategories = (function() {
@@ -296,128 +295,175 @@ spa.subcategories = (function() {
     jqueryMap = {},
 
     initModule, setJqueryMap, postSection,
-    currentMod;
+    currentMod,
+
+    subcategoryRoutes = [
+      '/taste/bitter', '/taste/salty', '/taste/sour', '/taste/sweet',
+
+      '/flavor/buttery'  , '/flavor/candy'   , '/flavor/caramel',
+      '/flavor/chocolate', '/flavor/cinnamon', '/flavor/coffee' ,
+      '/flavor/creamy'   , '/flavor/fruity'  , '/flavor/herb'   ,
+      '/flavor/mint'     , '/flavor/nutty'   , '/flavor/smoky'  ,
+      '/flavor/spicy'    , '/flavor/tart'    , '/flavor/vanilla',
+
+      '/ingredients/beer'   , '/ingredients/brandy'   ,
+      '/ingredients/bourbon', '/ingredients/champagne',
+      '/ingredients/gin'    , '/ingredients/liqueur'  ,
+      '/ingredients/mixer'  , '/ingredients/rum'      ,
+      '/ingredients/tequila', '/ingredients/whiskey'  ,
+      '/ingredients/wine'   ,
+
+      '/feeling/carbonated', '/feeling/rough', '/feeling/smooth',
+
+      '/color/black' , '/color/blue'  , '/color/clear' ,
+      '/color/green' , '/color/layered-multicolored'   ,
+      '/color/orange', '/color/pink'  , '/color/purple',
+      '/color/red'   , '/color/yellow', '/color/white' ,
+
+      '/strength/non-alcoholic', '/strength/weak'            ,
+      '/strength/light'        , '/strength/average'         ,
+      '/strength/strong'       , '/strength/extremely_strong',
+
+      '/calories/zero', '/calories/low', '/calories/medium',
+      '/calories/high', '/calories/extremely_high'         ,
+
+      '/temperature/frozen'          , '/temperature/cold',
+      '/temperature/room_temperature', '/temperature/hot' ,
+
+      '/glass/cocktail'    , '/glass/Collins'  , '/glass/coupe'   ,
+      '/glass/flute'       , '/glass/hurricane', '/glass/highball',
+      '/glass/Irish_coffee', '/glass/lowball'  , '/glass/martini' ,
+      '/glass/shot'        , '/glass/wine'     ,
+
+      '/special/classic' , '/special/country'     ,
+      '/special/holiday' , '/special/IBA_Official',
+      '/special/smoothie', '/special/tropical'
+    ];
 
   //// end local variables ////
 
   //// DOM interaction methods ////
 
-  /* 
-   * Note: eliminate repetitiveness in v0.0.2
-   */
-
   setJqueryMap = function() {
     var $container = stateMap.$container;
 
     jqueryMap = {
-      $container   : $container,
-      $content     : $container.find('#content-main'  ),
-      $drinks      : $container.find('#content-drinks'),
+      $container     : $container,
+      $content       : $container.find('#content-main'        ),
+      $drinks        : $container.find('#content-drinks'      ),
 
-      $taste       : $container.find('#taste'       ),
-      $flavor      : $container.find('#flavor'      ),
-      $ingredients : $container.find('#ingredients' ),
-      $feeling     : $container.find('#feeling'     ),
-      $color       : $container.find('#color'       ),
-      $strength    : $container.find('#strength'    ),
-      $calories    : $container.find('#calories'    ),
-      $temperature : $container.find('#temperature' ),
-      $glass       : $container.find('#glass'       ),
-      $special     : $container.find('#special'     ),
-      $random      : $container.find('#random'      ),
-      $allDrinks   : $container.find('#allDrinks'   ),
+      $taste         : $container.find('#taste'               ),
+      $flavor        : $container.find('#flavor'              ),
+      $ingredients   : $container.find('#ingredients'         ),
+      $feeling       : $container.find('#feeling'             ),
+      $color         : $container.find('#color'               ),
+      $strength      : $container.find('#strength'            ),
+      $calories      : $container.find('#calories'            ),
+      $temperature   : $container.find('#temperature'         ),
+      $glass         : $container.find('#glass'               ),
+      $special       : $container.find('#special'             ),
+      $random        : $container.find('#random'              ),
+      $allDrinks     : $container.find('#allDrinks'           ),
 
-      $bitter      : $container.find('#bitter'      ),
-      $salty       : $container.find('#salty'       ),
-      $sour        : $container.find('#sour'        ),
-      $sweet       : $container.find('#sweet'       ),
+      $bitter        : $container.find('#bitter'              ),
+      $salty         : $container.find('#salty'               ),
+      $sour          : $container.find('#sour'                ),
+      $sweet         : $container.find('#sweet'               ),
 
-      $buttery     : $container.find('#buttery'     ),
-      $candy       : $container.find('#candy'       ),
-      $caramel     : $container.find('#caramel'     ),
-      $chocolate   : $container.find('#chocolate'   ),
-      $cinnamon    : $container.find('#cinnamon'    ),
-      $coffee      : $container.find('#coffee'      ),
-      $creamy      : $container.find('#creamy'      ),
-      $fruity      : $container.find('#fruity'      ),
-      $herb        : $container.find('#herb'        ),
-      $mint        : $container.find('#mint'        ),
-      $nutty       : $container.find('#nutty'       ),
-      $smoky       : $container.find('#smoky'       ),
-      $spicy       : $container.find('#spicy'       ),
-      $tart        : $container.find('#tart'        ),
-      $vanilla     : $container.find('#vanilla'     ),
+      $buttery       : $container.find('#buttery'             ),
+      $candy         : $container.find('#candy'               ),
+      $caramel       : $container.find('#caramel'             ),
+      $chocolate     : $container.find('#chocolate'           ),
+      $cinnamon      : $container.find('#cinnamon'            ),
+      $coffee        : $container.find('#coffee'              ),
+      $creamy        : $container.find('#creamy'              ),
+      $fruity        : $container.find('#fruity'              ),
+      $herb          : $container.find('#herb'                ),
+      $mint          : $container.find('#mint'                ),
+      $nutty         : $container.find('#nutty'               ),
+      $smoky         : $container.find('#smoky'               ),
+      $spicy         : $container.find('#spicy'               ),
+      $tart          : $container.find('#tart'                ),
+      $vanilla       : $container.find('#vanilla'             ),
 
-      $beer        : $container.find('#beer'        ),
-      $brandy      : $container.find('#brandy'      ),
-      $bourbon     : $container.find('#bourbon'     ),
-      $champagne   : $container.find('#champagne'   ),
-      $gin         : $container.find('#gin'         ),
-      $liqueur     : $container.find('#liqueur'     ),
-      $mixer       : $container.find('#mixer'       ),
-      $rum         : $container.find('#rum'         ),
-      $tequila     : $container.find('#tequila'     ),
-      $whiskey     : $container.find('#whiskey'     ),
-      $wine        : $container.find('#wine'        ),
+      $beer          : $container.find('#beer'                ),
+      $brandy        : $container.find('#brandy'              ),
+      $bourbon       : $container.find('#bourbon'             ),
+      $champagne     : $container.find('#champagne'           ),
+      $gin           : $container.find('#gin'                 ),
+      $liqueur       : $container.find('#liqueur'             ),
+      $mixer         : $container.find('#mixer'               ),
+      $rum           : $container.find('#rum'                 ),
+      $tequila       : $container.find('#tequila'             ),
+      $whiskey       : $container.find('#whiskey'             ),
+      $wine          : $container.find('#wine'                ),
 
-      $carbonated  : $container.find('#carbonated'  ),
-      $rough       : $container.find('#rough'       ),
-      $smooth      : $container.find('#smooth'      ),
+      $carbonated    : $container.find('#carbonated'          ),
+      $rough         : $container.find('#rough'               ),
+      $smooth        : $container.find('#smooth'              ),
 
-      $black       : $container.find('#black'       ),
-      $blue        : $container.find('#blue'        ),
-      $clear_color : $container.find('#clear'       ),
-      $green       : $container.find('#green'       ),
-      $lmc         : $container.find('#layered-multicolored'),
-      $orange      : $container.find('#orange'      ),
-      $pink        : $container.find('#pink'        ),
-      $purple      : $container.find('#purple'      ),
-      $red         : $container.find('#red'         ),
-      $yellow      : $container.find('#yellow'      ),
-      $white       : $container.find('#white'       ),
+      $black         : $container.find('#black'               ),
+      $blue          : $container.find('#blue'                ),
+      $clear_color   : $container.find('#clear'               ),
+      $green         : $container.find('#green'               ),
+      $lmc           : $container.find('#layered-multicolored'),
+      $orange        : $container.find('#orange'              ),
+      $pink          : $container.find('#pink'                ),
+      $purple        : $container.find('#purple'              ),
+      $red           : $container.find('#red'                 ),
+      $yellow        : $container.find('#yellow'              ),
+      $white         : $container.find('#white'               ),
 
-      $non_alcoholic : $container.find('#non-alcoholic'   ),
-      $weak          : $container.find('#weak'            ),
-      $light         : $container.find('#light'           ),
-      $average       : $container.find('#average'         ),
-      $strong        : $container.find('#strong'          ),
-      $ex_strong     : $container.find('#extremely-strong'),
+      $non_alcoholic : $container.find('#non-alcoholic'       ),
+      $weak          : $container.find('#weak'                ),
+      $light         : $container.find('#light'               ),
+      $average       : $container.find('#average'             ),
+      $strong        : $container.find('#strong'              ),
+      $ex_strong     : $container.find('#extremely-strong'    ),
 
-      $zero          : $container.find('#zero'            ),
-      $low           : $container.find('#low'             ),
-      $medium        : $container.find('#medium'          ),
-      $high          : $container.find('#high'            ),
-      $ex_high       : $container.find('#extremely-high'  ),
+      $zero          : $container.find('#zero'                ),
+      $low           : $container.find('#low'                 ),
+      $medium        : $container.find('#medium'              ),
+      $high          : $container.find('#high'                ),
+      $ex_high       : $container.find('#extremely-high'      ),
 
-      $frozen        : $container.find('#frozen'          ),
-      $cold          : $container.find('#cold'            ),
-      $room_temp     : $container.find('#room-temperature'),
-      $hot           : $container.find('#hot'             ),
+      $frozen        : $container.find('#frozen'              ),
+      $cold          : $container.find('#cold'                ),
+      $room_temp     : $container.find('#room-temperature'    ),
+      $hot           : $container.find('#hot'                 ),
 
-      $cocktail      : $container.find('#cocktail'        ),
-      $collins       : $container.find('#collins'         ),
-      $coupe         : $container.find('#coupe'           ),
-      $flute         : $container.find('#flute'           ),
-      $hurricane     : $container.find('#hurricane'       ),
-      $highball      : $container.find('#highball'        ),
-      $irish_coffee  : $container.find('#irish-coffee'    ),
-      $lowball       : $container.find('#lowball'         ),
-      $martini       : $container.find('#martini'         ),
-      $shot          : $container.find('#shot'            ),
-      $wine_glass    : $container.find('#wine-glass'      ),
+      $cocktail      : $container.find('#cocktail'            ),
+      $collins       : $container.find('#collins'             ),
+      $coupe         : $container.find('#coupe'               ),
+      $flute         : $container.find('#flute'               ),
+      $hurricane     : $container.find('#hurricane'           ),
+      $highball      : $container.find('#highball'            ),
+      $irish_coffee  : $container.find('#irish-coffee'        ),
+      $lowball       : $container.find('#lowball'             ),
+      $martini       : $container.find('#martini'             ),
+      $shot          : $container.find('#shot'                ),
+      $wine_glass    : $container.find('#wine-glass'          ),
 
-      $classic       : $container.find('#classic'         ),
-      $country       : $container.find('#country'         ),
-      $holiday       : $container.find('#holiday'         ),
-      $iba_official  : $container.find('#iba-official'    ),
-      $smoothie      : $container.find('#smoothie'        ),
-      $tropical      : $container.find('#tropical'        )
+      $classic       : $container.find('#classic'             ),
+      $country       : $container.find('#country'             ),
+      $holiday       : $container.find('#holiday'             ),
+      $iba_official  : $container.find('#iba-official'        ),
+      $smoothie      : $container.find('#smoothie'            ),
+      $tropical      : $container.find('#tropical'            )
     };
   };
 
   //// Client-side router methods ////
 
   //////////////////// One function per feature module ////////////////////
+
+  function subcategory( categoryName ) {
+    if (currentMod != jqueryMap.categoryName)
+      currentMod.hide();
+    currentMod = jqueryMap.$categoryName;
+    spa.drinks.postSection();
+  }
+
   function bitter() {
     if (currentMod != jqueryMap.bitter)
       currentMod.hide();
@@ -966,7 +1012,7 @@ spa.subcategories = (function() {
 
   //////////////////// Other methods ////////////////////
 
-  function hideSecondaryCategories() {
+  function hideCategories() {
     jqueryMap.$taste.hide();
     jqueryMap.$flavor.hide();
     jqueryMap.$ingredients.hide();
@@ -981,7 +1027,7 @@ spa.subcategories = (function() {
     jqueryMap.$allDrinks.hide();
   }
 
-  function hideTertiaryCategories() {
+  function hideSubcategories() {
     jqueryMap.$bitter.hide();
     jqueryMap.$salty.hide();
     jqueryMap.$sour.hide();
@@ -1069,6 +1115,12 @@ spa.subcategories = (function() {
     jqueryMap.$tropical.hide();
   }
 
+  function myRoutes() {
+    var routes = [];
+    
+    return routes;
+  }
+
   //// Public methods ////
   initModule = function( $container ) {
     // load HTML and map jQuery collections
@@ -1104,6 +1156,10 @@ spa.subcategories = (function() {
     page('/taste/salty' , salty );
     page('/taste/sour'  , sour  );
     page('/taste/sweet' , sweet );
+
+    /*page(['/taste/bitter', '/taste/salty', '/taste/sour', '/taste/sweet']
+      , tertiaryCategory()
+    );*/
 
     page('/flavor/buttery'  , buttery  );
     page('/flavor/candy'    , candy    );
@@ -1192,7 +1248,7 @@ spa.subcategories = (function() {
 
     //// Click event handlers ////
     $('#bitter').on("click", function() {
-      //hideTertiaryCategories();
+      //hideSubcategories();
       console.log("bitter was clicked");
     });
 
@@ -1201,7 +1257,7 @@ spa.subcategories = (function() {
   postSection = function( subView ) {
     console.log(subView);
     jqueryMap.$drinks.hide();
-    hideSecondaryCategories();
+    hideCategories();
     switch(subView) {
       case "taste":
         currentMod = jqueryMap.$taste;
