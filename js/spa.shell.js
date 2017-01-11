@@ -102,7 +102,13 @@ spa.shell = (function () {
     jqueryMap = {},
 
     initModule, setJqueryMap, currentMod,
-    subView;
+    subView,
+
+    categoryRoutes = [
+      "/taste", "/flavor"  , "/ingredients", "/feeling"    ,
+      "/color", "/strength", "/calories"   , "/temperature",
+      "/glass", "/special" , "/random"     , "/all_drinks"
+    ];
 
   //----------------- END MODULE SCOPE VARIABLES ---------------
 
@@ -114,20 +120,20 @@ spa.shell = (function () {
 
     jqueryMap = {
       $container     : $container,
-      $nav           : $container.find('#navbar-main'),
-      $content       : $container.find('#content-main'),
+      $nav           : $container.find('#navbar-main'          ),
+      $content       : $container.find('#content-main'         ),
       $subcategories : $container.find('#content-subcategories'),
-      $taste         : $container.find('#taste'),
-      $flavor        : $container.find('#flavor'),
-      $ingredients   : $container.find('#ingredients'),
-      $feeling       : $container.find('#feeling'),
-      $color         : $container.find('#color'),
-      $strength      : $container.find('#strength'),
-      $calories      : $container.find('#calories'),
-      $temperature   : $container.find('#temperature'),
-      $glass         : $container.find('#glass'),
-      $special       : $container.find('#special'),
-      $allDrinks     : $container.find('#all-drinks')
+      $taste         : $container.find('#taste'                ),
+      $flavor        : $container.find('#flavor'               ),
+      $ingredients   : $container.find('#ingredients'          ),
+      $feeling       : $container.find('#feeling'              ),
+      $color         : $container.find('#color'                ),
+      $strength      : $container.find('#strength'             ),
+      $calories      : $container.find('#calories'             ),
+      $temperature   : $container.find('#temperature'          ),
+      $glass         : $container.find('#glass'                ),
+      $special       : $container.find('#special'              ),
+      $allDrinks     : $container.find('#all-drinks'           )
     };
   };
   // End DOM method /setJqueryMap/
@@ -143,7 +149,6 @@ spa.shell = (function () {
 
   // One function per feature module
   function subcategories() {
-    console.log(subView);
     if (currentMod != jqueryMap.subcategories)
       currentMod.hide();
     currentMod = jqueryMap.$subcategories;
@@ -174,65 +179,12 @@ spa.shell = (function () {
 
     // Set up routes
     page('/', index);
-    page('/taste',       subcategories);
-    page('/flavor',      subcategories);
-    page('/ingredients', subcategories);
-    page('/feeling',     subcategories);
-    page('/color',       subcategories);
-    page('/strength',    subcategories);
-    page('/calories',    subcategories);
-    page('/temperature', subcategories);
-    page('/glass',       subcategories);
-    page('/special',     subcategories);
-    page('/random',      subcategories);
-    page('/all_drinks',  subcategories);
-
-    //page('/taste/bitter', subcategories);
+    page.call(this, categoryRoutes, subcategories);
     page();
 
     // Click event handlers
-    $('#taste').on("click", function() {
-      subView = "taste";
-    });
-
-    $('#flavor').on("click", function() {
-      subView = "flavor";
-    });
-
-    $('#ingredients').on("click", function() {
-      subView = "ingredients";
-    });
-
-    $('#feeling').on("click", function() {
-      subView = "feeling";
-    });
-
-    $('#color').on("click", function() {
-      subView = "color";
-    });
-
-    $('#strength').on("click", function() {
-      subView = "strength";
-    });
-
-    $('#calories').on("click", function() {
-      subView = "calories";
-    });
-
-    $('#temperature').on("click", function() {
-      subView = "temperature";
-    });
-
-    $('#glass').on("click", function() {
-      subView = "glass";
-    });
-
-    $('#special').on("click", function() {
-      subView = "special";
-    });
-
-    $('#random').on("click", function() {
-      subView = "random";
+    $('.btn').on("click", function() {
+      subView = $(this).attr("id");
     });
 
     $('#all-drinks').on("click", function() {
