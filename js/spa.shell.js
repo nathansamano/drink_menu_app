@@ -194,6 +194,7 @@ spa.shell = (function () {
   }; // End public method initModule
 
   // Public API
-  return { initModule : initModule };
+  return { initModule : initModule,
+           categoryRoutes : categoryRoutes };
   //------------------- END PUBLIC METHODS ---------------------
 }());
