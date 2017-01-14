@@ -9,24 +9,24 @@ spa.subcategories = (function() {
 	var
     configMap = {
       main_html : String()
-        + '<section id="taste"      ></section>'
-        + '<section id="flavor"     ></section>'
-        + '<section id="ingredients"></section>'
-        + '<section id="feeling"    ></section>'
-        + '<section id="color"      ></section>'
-        + '<section id="strength"   ></section>'
-        + '<section id="calories"   ></section>'
-        + '<section id="temperature"></section>'
-        + '<section id="glass"      ></section>'
-        + '<section id="special"    ></section>'
-        + '<section id="random"     ></section>'
-        + '<section id="all-drinks" ></section>'
+        + '<section class="category" id="taste"      ></section>'
+        + '<section class="category" id="flavor"     ></section>'
+        + '<section class="category" id="ingredients"></section>'
+        + '<section class="category" id="feeling"    ></section>'
+        + '<section class="category" id="color"      ></section>'
+        + '<section class="category" id="strength"   ></section>'
+        + '<section class="category" id="calories"   ></section>'
+        + '<section class="category" id="temperature"></section>'
+        + '<section class="category" id="glass"      ></section>'
+        + '<section class="category" id="special"    ></section>'
+        + '<section class="category" id="random"     ></section>'
+        + '<section class="category" id="all-drinks" ></section>'
 
         + '<section><div id="content-drinks"></div></section>'
       ,
 
       taste_html : String()
-        + '<div class="container" id="content-main">'
+        + '<div class="container" class="subcategory" id="content-main">'
         + '<div class="bs-docs-section">'
           + '<div class="row">'
             + '<div class="col-lg-5">'
@@ -46,7 +46,7 @@ spa.subcategories = (function() {
       ,
 
       flavor_html : String()
-        + '<div class="container" id="content-main">'
+        + '<div class="container" class="subcategory" id="content-main">'
         + '<div class="bs-docs-section">'
           + '<div class="row">'
             + '<div class="col-lg-5">'
@@ -81,7 +81,7 @@ spa.subcategories = (function() {
       ,
 
       ingredients_html : String()
-        + '<div class="container" id="content-main">'
+        + '<div class="container" class="subcategory" id="content-main">'
         + '<div class="bs-docs-section">'
           + '<div class="row">'
             + '<div class="col-lg-5">'
@@ -113,7 +113,7 @@ spa.subcategories = (function() {
       ,
 
       feeling_html : String()
-        + '<div class="container" id="content-main">'
+        + '<div class="container" class="subcategory" id="content-main">'
         + '<div class="bs-docs-section">'
           + '<div class="row">'
             + '<div class="col-lg-5">'
@@ -128,7 +128,7 @@ spa.subcategories = (function() {
       ,
 
       color_html : String()
-        + '<div class="container" id="content-main">'
+        + '<div class="container" class="subcategory" id="content-main">'
         + '<div class="bs-docs-section">'
           + '<div class="row">'
             + '<div class="col-lg-5">'
@@ -160,7 +160,7 @@ spa.subcategories = (function() {
       ,
 
       strength_html : String()
-        + '<div class="container" id="content-main">'
+        + '<div class="container" class="subcategory" id="content-main">'
         + '<div class="bs-docs-section">'
           + '<div class="row">'
             + '<div class="col-lg-5">'
@@ -182,7 +182,7 @@ spa.subcategories = (function() {
       ,
 
       calories_html : String()
-        + '<div class="container" id="content-main">'
+        + '<div class="container" class="subcategory" id="content-main">'
         + '<div class="bs-docs-section">'
           + '<div class="row">'
             + '<div class="col-lg-5">'
@@ -204,7 +204,7 @@ spa.subcategories = (function() {
       ,
 
       temperature_html : String()
-        + '<div class="container" id="content-main">'
+        + '<div class="container" class="subcategory" id="content-main">'
         + '<div class="bs-docs-section">'
           + '<div class="row">'
             + '<div class="col-lg-5">'
@@ -224,7 +224,7 @@ spa.subcategories = (function() {
       ,
 
       glass_html : String()
-        + '<div class="container" id="content-main">'
+        + '<div class="container" class="subcategory" id="content-main">'
         + '<div class="bs-docs-section">'
           + '<div class="row">'
             + '<div class="col-lg-5">'
@@ -256,7 +256,7 @@ spa.subcategories = (function() {
       ,
 
       special_html : String()
-        + '<div class="container" id="content-main">'
+        + '<div class="container" class="subcategory" id="content-main">'
         + '<div class="bs-docs-section">'
           + '<div class="row">'
             + '<div class="col-lg-5">'
@@ -278,12 +278,12 @@ spa.subcategories = (function() {
       ,
 
       random_html : String()
-        + '<div class="container" id="content-main">'
+        + '<div class="container" class="subcategory" id="content-main">'
         + '</div>'
       ,
 
       all_drinks_html : String()
-        + '<div class="container" id="content-main">'
+        + '<div class="container" class="subcategory" id="content-main">'
         + '</div>'
     },
 
@@ -472,122 +472,6 @@ spa.subcategories = (function() {
 
   //////////////////// Other methods ////////////////////
 
-  function hideCategories() {
-    /*console.log(spa.shell.categoryRoutes);
-    var categoryRoutes = spa.shell.categoryRoutes;
-    console.log(categoryRoutes[0]);
-
-    for (var i = 0; i < categoryRoutes.length; i++) {
-      categoryRoutes[i] = categoryRoutes[i].replace("/", "");
-    }
-    console.log(categoryRoutes);
-
-    for (var i = 0; i < categoryRoutes.length; i++) {
-      jqueryMap.$categoryRoutes[i].hide();
-    }*/
-
-    jqueryMap.$taste.hide();
-    jqueryMap.$flavor.hide();
-    jqueryMap.$ingredients.hide();
-    jqueryMap.$feeling.hide();
-    jqueryMap.$color.hide();
-    jqueryMap.$strength.hide();
-    jqueryMap.$calories.hide();
-    jqueryMap.$temperature.hide();
-    jqueryMap.$glass.hide();
-    jqueryMap.$special.hide();
-    jqueryMap.$random.hide();
-    jqueryMap.$allDrinks.hide();
-  }
-
-  function hideSubcategories() {
-    jqueryMap.$bitter.hide();
-    jqueryMap.$salty.hide();
-    jqueryMap.$sour.hide();
-    jqueryMap.$sweet.hide();
-
-    jqueryMap.$buttery.hide();
-    jqueryMap.$candy.hide();
-    jqueryMap.$caramel.hide();
-    jqueryMap.$chocolate.hide();
-    jqueryMap.$cinnamon.hide();
-    jqueryMap.$coffee.hide();
-    jqueryMap.$creamy.hide();
-    jqueryMap.$fruity.hide();
-    jqueryMap.$herb.hide();
-    jqueryMap.$mint.hide();
-    jqueryMap.$nutty.hide();
-    jqueryMap.$smoky.hide();
-    jqueryMap.$spicy.hide();
-    jqueryMap.$tart.hide();
-    jqueryMap.$vanilla.hide();
-
-    jqueryMap.$beer.hide();
-    jqueryMap.$brandy.hide();
-    jqueryMap.$bourbon.hide();
-    jqueryMap.$champagne.hide();
-    jqueryMap.$gin.hide();
-    jqueryMap.$liqueur.hide();
-    jqueryMap.$mixer.hide();
-    jqueryMap.$rum.hide();
-    jqueryMap.$tequila.hide();
-    jqueryMap.$whiskey.hide();
-    jqueryMap.$wine.hide();
-
-    jqueryMap.$carbonated.hide();
-    jqueryMap.$rough.hide();
-    jqueryMap.$smooth.hide();
-
-    jqueryMap.$black.hide();
-    jqueryMap.$blue.hide();
-    jqueryMap.$clear_color.hide();
-    jqueryMap.$green.hide();
-    jqueryMap.$lmc.hide();
-    jqueryMap.$orange.hide();
-    jqueryMap.$pink.hide();
-    jqueryMap.$purple.hide();
-    jqueryMap.$red.hide();
-    jqueryMap.$yellow.hide();
-    jqueryMap.$white.hide();
-
-    jqueryMap.$non_alcoholic.hide();
-    jqueryMap.$weak.hide();
-    jqueryMap.$light.hide();
-    jqueryMap.$average.hide();
-    jqueryMap.$strong.hide();
-    jqueryMap.$ex_strong.hide();
-
-    jqueryMap.$zero.hide();
-    jqueryMap.$low.hide();
-    jqueryMap.$medium.hide();
-    jqueryMap.$high.hide();
-    jqueryMap.$ex_high.hide();
-
-    jqueryMap.$frozen.hide();
-    jqueryMap.$cold.hide();
-    jqueryMap.$room_temp.hide();
-    jqueryMap.$hot.hide();
-
-    jqueryMap.$cocktail.hide();
-    jqueryMap.$collins.hide();
-    jqueryMap.$coupe.hide();
-    jqueryMap.$flute.hide();
-    jqueryMap.$hurricane.hide();
-    jqueryMap.$highball.hide();
-    jqueryMap.$irish_coffee.hide();
-    jqueryMap.$lowball.hide();
-    jqueryMap.$martini.hide();
-    jqueryMap.$shot.hide();
-    jqueryMap.$wine.hide();
-
-    jqueryMap.$classic.hide();
-    jqueryMap.$country.hide();
-    jqueryMap.$holiday.hide();
-    jqueryMap.$iba_official.hide();
-    jqueryMap.$smoothie.hide();
-    jqueryMap.$tropical.hide();
-  }
-
   //// Public methods ////
   initModule = function( $container ) {
     // load HTML and map jQuery collections
@@ -632,7 +516,8 @@ spa.subcategories = (function() {
   postSection = function( subView ) {
     console.log(subView);
     jqueryMap.$drinks.hide();
-    hideCategories();
+    $('.category').hide();
+
     switch(subView) {
       case "taste":
         currentMod = jqueryMap.$taste;
