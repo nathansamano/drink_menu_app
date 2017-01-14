@@ -572,6 +572,16 @@ spa.subcategories = (function() {
     }
 
     jqueryMap.$container.show();
+
+    // Initially hide sorting tabs
+    $('.sort-tab').hide();
+
+    if (subView == "random" || subView == "allDrinks")
+      $('.sort-tab').show();
+
+    $(window).on('popstate', function(event) {
+      $('.sort-tab').hide();
+    });
   };
 
   return { initModule : initModule,

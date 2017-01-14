@@ -9,7 +9,9 @@ spa.drinks = (function() {
 	var
 		configMap = {
       main_html : String()
-        + '<div class="container" id="content-main">main</div>'
+        + '<div class="container" id="content-main">'
+
+        + '</div>'
     },
 
     stateMap = {
@@ -50,6 +52,9 @@ spa.drinks = (function() {
   postSection = function() {
     jqueryMap.$content.show();
     jqueryMap.$container.show();
+
+    // show sorting tabs
+    $('.sort-tab').show();
   };
 
   return { initModule : initModule,

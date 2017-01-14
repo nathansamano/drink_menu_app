@@ -47,8 +47,18 @@ spa.shell = (function () {
             + '<li>'
               +'<a href="#">Create Recipe</a>'
             + '</li>'
+            
             + '<li>'
-              +'<a href="#">Search</a>'
+              +'<a class="glyphicon glyphicon-sort-by-alphabet sort-tab" id="az"></a>'
+            + '</li>'
+            + '<li>'
+              +'<a class="glyphicon glyphicon-sort sort-tab" id="abv-tab">ABV</a>'
+            + '</li>'
+            + '<li>'
+              +'<a class="glyphicon glyphicon-sort sort-tab" id="ozal-tab">oz al</a>'
+            + '</li>'
+            + '<li>'
+              +'<a class="glyphicon glyphicon-search"></a>'
             + '</li>'
           + '</ul>'
         + '</div>'
@@ -182,6 +192,9 @@ spa.shell = (function () {
     page.call(this, categoryRoutes, subcategories);
     page();
 
+    // Hide sorting tabs
+    $('.sort-tab').hide();
+
     // Click event handlers
     $('.btn').on("click", function() {
       subView = $(this).attr("id");
@@ -189,6 +202,14 @@ spa.shell = (function () {
 
     $('#all-drinks').on("click", function() {
       subView = "allDrinks";
+    });
+
+    $('.navbar-brand').on("click", function() {
+      $('.sort-tab').hide();
+    });
+
+    $('#az').on("click", function() {
+      $(this).toggleClass("glyphicon-sort-by-alphabet glyphicon-sort-by-alphabet-alt");
     });
 
   }; // End public method initModule
