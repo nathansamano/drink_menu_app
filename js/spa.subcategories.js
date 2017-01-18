@@ -14,8 +14,6 @@ spa.subcategories = (function() {
         + '<section class="category" id="ingredients"></section>'
         + '<section class="category" id="feeling"    ></section>'
         + '<section class="category" id="color"      ></section>'
-        + '<section class="category" id="strength"   ></section>'
-        + '<section class="category" id="calories"   ></section>'
         + '<section class="category" id="temperature"></section>'
         + '<section class="category" id="glass"      ></section>'
         + '<section class="category" id="special"    ></section>'
@@ -32,14 +30,16 @@ spa.subcategories = (function() {
             + '<div class="col-lg-5">'
               + '<div class="bs-component" style="margin-bottom: 15px;">'
                 + '<div class="btn-group btn-group-justified">'
-                  + '<a href="/taste/bitter" class="btn btn-default" id="bitter">Bitter</a>'
-                  + '<a href="/taste/salty" class="btn btn-default" id="salty">Salty</a>'
+                  + '<a href="/taste/alcohol" class="btn btn-default" id="alcohol">Alcohol</a>'
+                  + '<a href="/taste/bitter"  class="btn btn-default" id="bitter" >Bitter</a>'
+                  + '<a href="/taste/salty"   class="btn btn-default" id="salty"  >Salty</a>'
                 + '</div>'
               + '</div>'
               + '<div class="bs-component" style="margin-bottom: 15px;">'
                 + '<div class="btn-group btn-group-justified">'
-                  + '<a href="/taste/sour" class="btn btn-default" id="sour">Sour</a>'
+                  + '<a href="/taste/sour"  class="btn btn-default" id="sour" >Sour</a>'
                   + '<a href="/taste/sweet" class="btn btn-default" id="sweet">Sweet</a>'
+                  + '<div class="btn btn-default blank" id=""></div>'
                 + '</div>'
               + '</div>'
         + '</div></div></div></div>'
@@ -56,7 +56,7 @@ spa.subcategories = (function() {
                   + '<a href="/flavor/candy"     class="btn btn-default" id="candy"    >Candy</a>'
                   + '<a href="/flavor/caramel"   class="btn btn-default" id="caramel"  >Caramel</a>'
                   + '<a href="/flavor/chocolate" class="btn btn-default" id="chocolate">Chocolate</a>'
-                  + '<a href="/flavor/cinnamon"  class="btn btn-default" id="cinnamon" >Cinnamon</a>'
+                  + '<a href="/flavor/cinnamon"  class="btn btn-default" id="cinnamon" >Cinnamon </a>'
                 + '</div>'
               + '</div>'
               + '<div class="bs-component" style="margin-bottom: 15px;">'
@@ -106,22 +106,7 @@ spa.subcategories = (function() {
                   + '<a href="/ingredients/tequila" class="btn btn-default" id="tequila"  >Tequila</a>'
                   + '<a href="/ingredients/whiskey" class="btn btn-default" id="whiskey"  >Whiskey</a>'
                   + '<a href="/ingredients/wine"    class="btn btn-default" id="wine"     >Wine</a>'
-                  + '<div                           class="btn btn-default" id="blank"    ></div>'  
-                + '</div>'
-              + '</div>'
-        + '</div></div></div></div>'
-      ,
-
-      feeling_html : String()
-        + '<div class="container" class="subcategory" id="content-main">'
-        + '<div class="bs-docs-section">'
-          + '<div class="row">'
-            + '<div class="col-lg-5">'
-              + '<div class="bs-component" style="margin-bottom: 15px;">'
-                + '<div class="btn-group btn-group-justified">'
-                  + '<a href="/feeling/carbonated" class="btn btn-default" id="carbonated">Carbonated</a>'
-                  + '<a href="/feeling/rough"      class="btn btn-default" id="rough"     >Rough</a>'
-                  + '<a href="/feeling/smooth"     class="btn btn-default" id="smooth"    >Smooth</a>'
+                  + '<div                           class="btn btn-default  blank" id="" ></div>'  
                 + '</div>'
               + '</div>'
         + '</div></div></div></div>'
@@ -153,51 +138,7 @@ spa.subcategories = (function() {
                   + '<a href="/color/red"    class="btn btn-default" id="red"   >Red</a>'
                   + '<a href="/color/yellow" class="btn btn-default" id="yellow">Yellow</a>'
                   + '<a href="/color/white"  class="btn btn-default" id="white" >White</a>'
-                  + '<div                    class="btn btn-default" id="blank" ></div>'  
-                + '</div>'
-              + '</div>'
-        + '</div></div></div></div>'
-      ,
-
-      strength_html : String()
-        + '<div class="container" class="subcategory" id="content-main">'
-        + '<div class="bs-docs-section">'
-          + '<div class="row">'
-            + '<div class="col-lg-5">'
-              + '<div class="bs-component" style="margin-bottom: 15px;">'
-                + '<div class="btn-group btn-group-justified">'
-                  + '<a href="/strength/non-alcoholic" class="btn btn-default" id="non-alcoholic">Non-alcoholic</a>'
-                  + '<a href="/strength/weak"          class="btn btn-default" id="weak"         >Weak</a>'
-                  + '<a href="/strength/light"         class="btn btn-default" id="light"        >Light</a>'
-                + '</div>'
-              + '</div>'
-              + '<div class="bs-component" style="margin-bottom: 15px;">'
-                + '<div class="btn-group btn-group-justified">'
-                  + '<a href="/strength/average"          class="btn btn-default" id="average"         >Average</a>'
-                  + '<a href="/strength/strong"           class="btn btn-default" id="strong"          >Strong</a>'
-                  + '<a href="/strength/extremely_strong" class="btn btn-default" id="extremely-strong">Extremely Strong</a>'
-                + '</div>'
-              + '</div>'
-        + '</div></div></div></div>'
-      ,
-
-      calories_html : String()
-        + '<div class="container" class="subcategory" id="content-main">'
-        + '<div class="bs-docs-section">'
-          + '<div class="row">'
-            + '<div class="col-lg-5">'
-              + '<div class="bs-component" style="margin-bottom: 15px;">'
-                + '<div class="btn-group btn-group-justified">'
-                  + '<a href="/calories/zero"   class="btn btn-default" id="zero"  >Zero</a>'
-                  + '<a href="/calories/low"    class="btn btn-default" id="low"   >Low</a>'
-                  + '<a href="/calories/medium" class="btn btn-default" id="medium">Medium</a>'
-                + '</div>'
-              + '</div>'
-              + '<div class="bs-component" style="margin-bottom: 15px;">'
-                + '<div class="btn-group btn-group-justified">'
-                  + '<a href="/calories/high"           class="btn btn-default" id="high"          >High</a>'
-                  + '<a href="/calories/extremely_high" class="btn btn-default" id="extremely-high">Extremely High</a>'
-                  + '<div                               class="btn btn-default" id="blank"         ></div>'
+                  + '<div                    class="btn btn-default  blank" id="" ></div>'  
                 + '</div>'
               + '</div>'
         + '</div></div></div></div>'
@@ -249,7 +190,7 @@ spa.subcategories = (function() {
                   + '<a href="/glass/martini" class="btn btn-default" id="martini"   >Martini</a>'
                   + '<a href="/glass/shot"    class="btn btn-default" id="shot"      >Shot</a>'
                   + '<a href="/glass/wine"    class="btn btn-default" id="wine-glass">Wine</a>'
-                  + '<div                     class="btn btn-default" id="blank"     ></div>'  
+                  + '<div                     class="btn btn-default  blank" id="" ></div>'  
                 + '</div>'
               + '</div>'
         + '</div></div></div></div>'
@@ -262,16 +203,23 @@ spa.subcategories = (function() {
             + '<div class="col-lg-5">'
               + '<div class="bs-component" style="margin-bottom: 15px;">'
                 + '<div class="btn-group btn-group-justified">'
-                  + '<a href="/special/classic" class="btn btn-default" id="classic">Classic</a>'
-                  + '<a href="/special/country" class="btn btn-default" id="country">Country</a>'
-                  + '<a href="/special/holiday" class="btn btn-default" id="holiday">Holiday</a>'
+                  + '<a href="/special/carbonated" class="btn btn-default" id="classic">Carbonated</a>'
+                  + '<a href="/special/classic"    class="btn btn-default" id="classic">Classic</a>'
+                  + '<a href="/special/country"    class="btn btn-default" id="country">Country</a>'
                 + '</div>'
               + '</div>'
               + '<div class="bs-component" style="margin-bottom: 15px;">'
                 + '<div class="btn-group btn-group-justified">'
+                  + '<a href="/special/holiday"      class="btn btn-default" id="holiday"     >Holiday</a>'
                   + '<a href="/special/IBA_Official" class="btn btn-default" id="iba-official">IBA Official</a>'                
                   + '<a href="/special/smoothie"     class="btn btn-default" id="smoothie"    >Smoothie</a>'
-                  + '<a href="/special/tropical"     class="btn btn-default" id="tropical"    >Tropical</a>'
+                + '</div>'
+              + '</div>'
+              + '<div class="bs-component" style="margin-bottom: 15px;">'
+                + '<div class="btn-group btn-group-justified">'
+                  + '<a href="/special/tropical" class="btn btn-default" id="tropical">Tropical</a>'
+                  + '<div class="btn btn-default blank" id=""></div>'                
+                  + '<div class="btn btn-default blank" id=""></div>'
                 + '</div>'
               + '</div>'
         + '</div></div></div></div>'
@@ -298,7 +246,8 @@ spa.subcategories = (function() {
     currentMod, categoryName,
 
     subcategoryRoutes = [
-      '/taste/bitter', '/taste/salty', '/taste/sour', '/taste/sweet',
+      '/taste/alcohol', '/taste/bitter', '/taste/salty',
+      '/taste/sour'   , '/taste/sweet' ,
 
       '/flavor/buttery'  , '/flavor/candy'   , '/flavor/caramel',
       '/flavor/chocolate', '/flavor/cinnamon', '/flavor/coffee' ,
@@ -313,19 +262,10 @@ spa.subcategories = (function() {
       '/ingredients/tequila', '/ingredients/whiskey'  ,
       '/ingredients/wine'   ,
 
-      '/feeling/carbonated', '/feeling/rough', '/feeling/smooth',
-
       '/color/black' , '/color/blue'  , '/color/clear' ,
       '/color/green' , '/color/layered-multicolored'   ,
       '/color/orange', '/color/pink'  , '/color/purple',
       '/color/red'   , '/color/yellow', '/color/white' ,
-
-      '/strength/non-alcoholic', '/strength/weak'            ,
-      '/strength/light'        , '/strength/average'         ,
-      '/strength/strong'       , '/strength/extremely_strong',
-
-      '/calories/zero', '/calories/low', '/calories/medium',
-      '/calories/high', '/calories/extremely_high'         ,
 
       '/temperature/frozen'          , '/temperature/cold',
       '/temperature/room_temperature', '/temperature/hot' ,
@@ -335,9 +275,10 @@ spa.subcategories = (function() {
       '/glass/Irish_coffee', '/glass/lowball'  , '/glass/martini' ,
       '/glass/shot'        , '/glass/wine'     ,
 
-      '/special/classic' , '/special/country'     ,
-      '/special/holiday' , '/special/IBA_Official',
-      '/special/smoothie', '/special/tropical'
+      '/special/carbonated'  , '/special/classic' ,
+      '/special/country'     , '/special/holiday' ,
+      '/special/IBA_Official', '/special/smoothie',
+      '/special/tropical'
     ];
 
   //// end local variables ////
@@ -355,16 +296,14 @@ spa.subcategories = (function() {
       $taste         : $container.find('#taste'               ),
       $flavor        : $container.find('#flavor'              ),
       $ingredients   : $container.find('#ingredients'         ),
-      $feeling       : $container.find('#feeling'             ),
       $color         : $container.find('#color'               ),
-      $strength      : $container.find('#strength'            ),
-      $calories      : $container.find('#calories'            ),
       $temperature   : $container.find('#temperature'         ),
       $glass         : $container.find('#glass'               ),
       $special       : $container.find('#special'             ),
       $random        : $container.find('#random'              ),
       $allDrinks     : $container.find('#allDrinks'           ),
 
+      $alcohol       : $container.find('#alcohol'             ),
       $bitter        : $container.find('#bitter'              ),
       $salty         : $container.find('#salty'               ),
       $sour          : $container.find('#sour'                ),
@@ -398,10 +337,6 @@ spa.subcategories = (function() {
       $whiskey       : $container.find('#whiskey'             ),
       $wine          : $container.find('#wine'                ),
 
-      $carbonated    : $container.find('#carbonated'          ),
-      $rough         : $container.find('#rough'               ),
-      $smooth        : $container.find('#smooth'              ),
-
       $black         : $container.find('#black'               ),
       $blue          : $container.find('#blue'                ),
       $clear_color   : $container.find('#clear'               ),
@@ -413,19 +348,6 @@ spa.subcategories = (function() {
       $red           : $container.find('#red'                 ),
       $yellow        : $container.find('#yellow'              ),
       $white         : $container.find('#white'               ),
-
-      $non_alcoholic : $container.find('#non-alcoholic'       ),
-      $weak          : $container.find('#weak'                ),
-      $light         : $container.find('#light'               ),
-      $average       : $container.find('#average'             ),
-      $strong        : $container.find('#strong'              ),
-      $ex_strong     : $container.find('#extremely-strong'    ),
-
-      $zero          : $container.find('#zero'                ),
-      $low           : $container.find('#low'                 ),
-      $medium        : $container.find('#medium'              ),
-      $high          : $container.find('#high'                ),
-      $ex_high       : $container.find('#extremely-high'      ),
 
       $frozen        : $container.find('#frozen'              ),
       $cold          : $container.find('#cold'                ),
@@ -444,6 +366,7 @@ spa.subcategories = (function() {
       $shot          : $container.find('#shot'                ),
       $wine_glass    : $container.find('#wine-glass'          ),
 
+      $carbonated    : $container.find('#carbonated'          ),
       $classic       : $container.find('#classic'             ),
       $country       : $container.find('#country'             ),
       $holiday       : $container.find('#holiday'             ),
@@ -483,10 +406,7 @@ spa.subcategories = (function() {
     $container.find('#taste'      ).html( configMap.taste_html       );
     $container.find('#flavor'     ).html( configMap.flavor_html      );
     $container.find('#ingredients').html( configMap.ingredients_html );
-    $container.find('#feeling'    ).html( configMap.feeling_html     );
     $container.find('#color'      ).html( configMap.color_html       );
-    $container.find('#strength'   ).html( configMap.strength_html    );
-    $container.find('#calories'   ).html( configMap.calories_html    );
     $container.find('#temperature').html( configMap.temperature_html );
     $container.find('#glass'      ).html( configMap.glass_html       );
     $container.find('#special'    ).html( configMap.special_html     );
@@ -514,7 +434,6 @@ spa.subcategories = (function() {
   };
 
   postSection = function( subView ) {
-    console.log(subView);
     jqueryMap.$drinks.hide();
     $('.category').hide();
 
@@ -531,21 +450,9 @@ spa.subcategories = (function() {
         currentMod = jqueryMap.$ingredients;
         jqueryMap.$ingredients.show();
         break;
-      case "feeling":
-        currentMod = jqueryMap.$feeling;
-        jqueryMap.$feeling.show();
-        break;
       case "color":
         currentMod = jqueryMap.$color;
         jqueryMap.$color.show();
-        break;
-      case "strength":
-        currentMod = jqueryMap.$strength;
-        jqueryMap.$strength.show();
-        break;
-      case "calories":
-        currentMod = jqueryMap.$calories;
-        jqueryMap.$calories.show();
         break;
       case "temperature":
         currentMod = jqueryMap.$temperature;

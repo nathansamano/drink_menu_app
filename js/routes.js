@@ -6,11 +6,12 @@
 'use strict';
 var
   routeLabels = ['/',
-    '/taste', '/flavor'  , '/ingredients', '/feeling'    ,
-    '/color', '/strength', '/calories'   , '/temperature',
-    '/glass', '/special' , '/random'     , '/all_drinks' ,
+    '/taste'  , '/flavor'     , '/ingredients',
+    '/color'  , '/temperature', '/glass'      ,
+    '/special', '/random'     , '/all_drinks' ,
 
-    '/taste/bitter', '/taste/salty', '/taste/sour', '/taste/sweet',
+    '/taste/alcohol', '/taste/bitter', '/taste/salty',
+    '/taste/sour'   , '/taste/sweet' ,
 
     '/flavor/buttery'  , '/flavor/candy'   , '/flavor/caramel',
     '/flavor/chocolate', '/flavor/cinnamon', '/flavor/coffee' ,
@@ -25,19 +26,10 @@ var
     '/ingredients/tequila', '/ingredients/whiskey'  ,
     '/ingredients/wine'   ,
 
-    '/feeling/carbonated', '/feeling/rough', '/feeling/smooth',
-
     '/color/black' , '/color/blue'  , '/color/clear' ,
     '/color/green' , '/color/layered-multicolored'   ,
     '/color/orange', '/color/pink'  , '/color/purple',
     '/color/red'   , '/color/yellow', '/color/white' ,
-
-    '/strength/non-alcoholic', '/strength/weak'            ,
-    '/strength/light'        , '/strength/average'         ,
-    '/strength/strong'       , '/strength/extremely_strong',
-
-    '/calories/zero', '/calories/low', '/calories/medium',
-    '/calories/high', '/calories/extremely_high'         ,
 
     '/temperature/frozen'          , '/temperature/cold',
     '/temperature/room_temperature', '/temperature/hot' ,
@@ -47,9 +39,10 @@ var
     '/glass/Irish_coffee', '/glass/lowball'  , '/glass/martini' ,
     '/glass/shot'        , '/glass/wine'     ,
 
-    '/special/classic' , '/special/country'     ,
-    '/special/holiday' , '/special/IBA_Official',
-    '/special/smoothie', '/special/tropical'
+    '/special/carbonated'  , '/special/classic' ,
+    '/special/country'     , '/special/holiday' ,
+    '/special/IBA_Official', '/special/smoothie',
+    '/special/tropical'
   ],
   configRoutes;
 //// End variable declarations ////

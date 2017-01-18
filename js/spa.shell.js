@@ -73,29 +73,22 @@ spa.shell = (function () {
             + '<div class="col-lg-5">'
               + '<div class="bs-component" style="margin-bottom: 15px;">'
                 + '<div class="btn-group btn-group-justified">'
-                  + '<a href="/taste" class="btn btn-default" id="taste">Taste</a>'
-                  + '<a href="/flavor" class="btn btn-default" id="flavor">Flavor</a>'
+                  + '<a href="/taste"       class="btn btn-default" id="taste"      >Taste</a>'
+                  + '<a href="/flavor"      class="btn btn-default" id="flavor"     >Flavor</a>'
                   + '<a href="/ingredients" class="btn btn-default" id="ingredients">Ingredients</a>'
                 + '</div>'
               + '</div>'
               + '<div class="bs-component" style="margin-bottom: 15px;">'
                 + '<div class="btn-group btn-group-justified">'
-                  + '<a href="/feeling" class="btn btn-default" id="feeling">Feeling</a>'
-                  + '<a href="/color" class="btn btn-default" id="color">Color</a>'
-                  + '<a href="/strength" class="btn btn-default" id="strength">Strength</a>'
-                + '</div>'
-              + '</div>'
-              + '<div class="bs-component" style="margin-bottom: 15px;">'
-                + '<div class="btn-group btn-group-justified">'
-                  + '<a href="/calories" class="btn btn-default" id="calories">Calories</a>'
+                  + '<a href="/color"       class="btn btn-default" id="color"      >Color</a>'
                   + '<a href="/temperature" class="btn btn-default" id="temperature">Temperature</a>'
-                  + '<a href="/glass" class="btn btn-default" id="glass">Glass</a>'
+                  + '<a href="/glass"       class="btn btn-default" id="glass"      >Glass</a>'
                 + '</div>'
               + '</div>'
               + '<div class="bs-component" style="margin-bottom: 15px;">'
                 + '<div class="btn-group btn-group-justified">'
-                  + '<a href="/special" class="btn btn-default" id="special">Special</a>'
-                  + '<a href="/random" class="btn btn-default" id="random">Random</a>'
+                  + '<a href="/special"    class="btn btn-default" id="special"   >Special</a>'
+                  + '<a href="/random"     class="btn btn-default" id="random"    >Random</a>'
                   + '<a href="/all_drinks" class="btn btn-default" id="all-drinks">All Drinks</a>'
                 + '</div>'
               + '</div>'
@@ -115,9 +108,9 @@ spa.shell = (function () {
     subView,
 
     categoryRoutes = [
-      "/taste", "/flavor"  , "/ingredients", "/feeling"    ,
-      "/color", "/strength", "/calories"   , "/temperature",
-      "/glass", "/special" , "/random"     , "/all_drinks"
+      "/taste"  , "/flavor"     , "/ingredients",
+      "/color"  , "/temperature", "/glass"      ,
+      "/special", "/random"     , "/all_drinks"
     ];
 
   //----------------- END MODULE SCOPE VARIABLES ---------------
@@ -136,10 +129,7 @@ spa.shell = (function () {
       $taste         : $container.find('#taste'                ),
       $flavor        : $container.find('#flavor'               ),
       $ingredients   : $container.find('#ingredients'          ),
-      $feeling       : $container.find('#feeling'              ),
       $color         : $container.find('#color'                ),
-      $strength      : $container.find('#strength'             ),
-      $calories      : $container.find('#calories'             ),
       $temperature   : $container.find('#temperature'          ),
       $glass         : $container.find('#glass'                ),
       $special       : $container.find('#special'              ),
